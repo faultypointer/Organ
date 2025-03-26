@@ -1,0 +1,17 @@
+#+title: Learning Common Lisp
+#+author: faultypointer
+
+* Why?
+I just recently started to learn/use (albeit much slowly) emacs. And with emacs comes elisp for configuration
+stuff. So I asked why not learn lisp while we are at it.
+
+But that is not the only or even the most significant reason. I wanted to learn a functional programming
+language for quite some time. I have tried (for just a bit) haskell and ocaml previously. Somehow
+I couldn't stick with any one of them. I thought what harm will it do to give change to a third one and so
+for nothing. Infact I'm quite liking lisp. and who knows maybe I'll even learn to love macros?
+
+* How?
+At the moment, I'm just following the book [[https://gigamonkeys.com/book/][Practical Common Lisp]] by /Peter Seibel/.
+
+* Notable Notes
+- [[file:prac-cmon-lisp/cd-db/macro.org][macro.org]]

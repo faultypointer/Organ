@@ -1,0 +1,13 @@
+#+title: Always Learning
+#+author: faultypointer
+
+As I've said, [[https://faulty.carboxi.de/learning/][I love learning things]].
+This folder contains notes and other files related to the stuff I learn.
+
+* Currently
+I'm currently learning about [[file:clisp/CLisp.org][common lisp]].
+
+* So what have I learned then?
+so empty...
+
+* Logs

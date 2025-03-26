@@ -1,0 +1,24 @@
+* Introduction to Lisp Macro
+Lisp's macro is nothing like the basic text based macro in c/c++.
+Instead it is a code generator that gets run by compiler
+
+When a lisp expression contains a call to a macro,
+the arguments are passed to macro code, without evaluation,
+which returns a new Lisp expression that is then evaluated.
+
+** A basic macro
+#+begin_src lisp
+  (defmacro backwards (expr) (reverse expr))
+
+  (backwards ("hello, world" "~a"  nil format))
+#+end_src
+
+#+RESULTS:
+: hello, world
+
+The syntax of macro is very similar to function, macro defined with /defmacro/ then comes
+macro name, a parameter list, and a macro body of expressions.
+
+When the macro is called, the unevaluated arguments are passed to the macro which reverses the list and
+returns ~(format nil "~a" "hello, world")~. This is a valid lisp expression which when run returns ~hello, world~.
+
