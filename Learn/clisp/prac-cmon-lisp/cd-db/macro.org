@@ -22,3 +22,50 @@ macro name, a parameter list, and a macro body of expressions.
 When the macro is called, the unevaluated arguments are passed to the macro which reverses the list and
 returns ~(format nil "~a" "hello, world")~. This is a valid lisp expression which when run returns ~hello, world~.
 
+** A practical example
+
+Here is a snipped of a function that implements where clause for query
+#+begin_src lisp
+   (defun where (&key title artist rating (ripped nil ripped-p))
+   #'(lambda (cd)
+       (and
+        (if title (equal (getf cd :title) title) t)
+        (if artist (equal (getf cd :artist) artist) t)
+        (if rating (equal (getf cd :rating) rating) t)
+        (if ripped-p (equal (getf cd :ripped) ripped) t))))
+#+end_src
+
+and here is the same (and more) functionality using macro
+
+#+begin_src lisp
+      (defun make-comparison-expr (field value)
+      `(equal (getf cd ,field) ,value))
+
+    (defun make-comparisons-list (fields)
+               (loop while fields
+                     collecting (make-comparison-expr (pop fields) (pop fields))))
+
+    (defmacro where (&rest clauses)
+      `#'(lambda (cd) (and ,@(make-comparisons-list clauses))))
+
+  ;; lets see what the where does
+  (format nil "~a" (macroexpand '(where :title "Fly" :ripped t)))
+#+end_src
+
+#+RESULTS:
+: #'(LAMBDA (CD) (AND (EQUAL (GETF CD TITLE) Fly) (EQUAL (GETF CD RIPPED) T)))
+
+The where macro returns the code unevaluated except for the expressions marked by ~,~ and ~,@~. The comma in ~make-comparison-expr~ evaluates
+the expression ~field~ and ~value~ which are passed by ~make-comparisons-list~ which does get called and for every field value pairs.
+The ~,@~ just puts the items of inner list to outer list. Like this
+
+#+begin_src lisp
+      (format nil "no @: ~10t~a~%with @: ~10t~a"
+              `(and ,(list 1 2 3))
+              `(and ,@(list 1 2 3)))
+#+end_src
+
+#+RESULTS:
+: no @:     (AND (1 2 3))
+: with @:   (AND 1 2 3)
+
