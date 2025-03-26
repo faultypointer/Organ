@@ -1,0 +1,67 @@
+#+title: A Problem a Day: Leetcode 1
+#+author: faultypointer
+#+date: 2025-03-26
+
+* Multiples of 3 or 5
+
+** Problem Statement
+If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+Find the sum of all the multiples of 3 or 5 below 1000.
+
+* Solution
+
+** Version 1
+With my very very very limited knowledge of lisp, to find the multiples of 3.
+
+and i could not figure out a way to generate a range of numbers.
+so first a function to generate list upto certain number.
+#+begin_src lisp
+  (defun range (n)
+    (loop for i from 1 to n collect i))
+
+  (range 9)
+#+end_src
+
+#+RESULTS:
+| 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+
+Now removing everything besides multiple of 3.
+
+#+begin_src lisp
+      (defun purge-non-multiple (nrange)
+        (remove-if-not
+         #'(lambda (x) (equal (mod x 3) 0))
+         nrange))
+
+      (purge-non-multiple (range 9))
+#+end_src
+
+#+RESULTS:
+| 3 | 6 | 9 |
+
+putting that lambda code in a function. and while we are at it lets check for multiple of 5 as well
+
+#+begin_src lisp
+  (defun is-multiple (x)
+    (or
+     (equal (mod x 3) 0)
+     (equal (mod x 5) 0)))
+
+  (remove-if-not 'is-multiple (range 9))
+#+end_src
+
+#+RESULTS:
+| 3 | 5 | 6 | 9 |
+
+finally bringing it all together
+
+#+begin_src lisp
+  (reduce #'+ (remove-if-not 'is-multiple (range 999))) 
+#+end_src
+
+#+RESULTS:
+: 233168
+
+And done.
+
+Maybe I'll come back after learning more lisp to see if there is (im sure there is) a better solution.
