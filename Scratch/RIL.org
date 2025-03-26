@@ -1,0 +1,6 @@
+#+title: Read It Later
+#+author: faultypointer
+
+* Zig
+- [ ] [[https://matklad.github.io/2025/03/19/comptime-zig-orm.html][Zig Comptime ORM]]
+- [ ] [[https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER_STYLE.md][TigerStyle]]
