@@ -1,0 +1,9 @@
+#+title: My Personal Notes (and everything else)
+#+author: faultypointer
+
+* Structure
+- *Notes*: contains the notes I take
+- *Learn*: contains files related to stuff im learning about
+- *Project*: contains informations about projects im currently working on or ones ive done
+- *Blog*: this includes my blog posts including drafts
+- *Scratch*: this includes everything else like my readlist, watchlist, ideas etc
