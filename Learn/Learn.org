@@ -11,3 +11,4 @@ I'm currently learning about [[file:clisp/CLisp.org][common lisp]].
 so empty...
 
 * Logs
+<2025-03-26 Wed> [[file:clisp/CLisp.org][common lisp]] finished chapter 3.
