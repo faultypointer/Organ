@@ -12,3 +12,4 @@ so empty...
 
 * Logs
 <2025-03-26 Wed> [[file:clisp/CLisp.org][common lisp]] finished chapter 3.
+<2025-03-27 Thu> [[file:clisp/CLisp.org][common lisp]] finished chapter 4.
