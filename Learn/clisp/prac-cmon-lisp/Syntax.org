@@ -1,0 +1,124 @@
+#+TITLE: Common Lisp Syntax 
+#+AUTHOR: faultypointer
+#+DATE: 2025-03-27
+
+* Important Concepts
+** Why have one when you can have two?
+common lisp have apparently two black box as opposed to one that is common in other languages. In other languages,
+the source code goes through a single black box (compiler or interpreter) that converts it from text to executable
+code. In lisp, however, the text first goes through first black box called reader that transforms it into Lisp
+objects called [[*S-expressions][s-expressions]]. Then those objects goes through a second black box called evaluator that transforms them into machine
+code. The evaluator is where the semantics of the language is implemented in terms of Lisp objects.
+
+The reader define how string of characters can be translated to s-expressions.
+
+The evaluator defines a syntax of Lisp /forms/ in terms of s-expressions.
+
+
+** S-expressions
+/lists/ and /atoms/ are the basic elements of s-expression. Lists are whitespace-separated elements delimited by
+parentheses. They can contain any number of elements. Atoms are everything else. The elements of lists are
+themselves s-expressions.
+Comments start with a semicolon and extent to the end of line. Comments are not technically s-expressions.
+
+*** Rules governing various kinds of atoms
+**** Numbers
+Any sequence of digits, possibly prefaced with a sign (+ or -), containing a decimal point (.) or a solidus(/),
+or ending with an exponent marker.
+- 123 integer
+- 3/7     ratio three
+- 1.0     floating-point number in default precision
+- 1.0e0
+- 1.0d0   floating-point number in double precision
+- 1.0e-4
+
+
+**** String Literals
+String Literals are enclosed in double quotes. '\' is escape characters within string literals. Backslash and
+double quote must be escaped, otherwise all other characters can be used in literal as is.
+
+**** Names
+Names used in Lisp programs are represented by objects called /symbols/. The reader does not know anything about
+the type of name or how it will be used. It just builds an object to represent the name. 
+
+
+** S-expression as Lisp Forms
+After text is converted to s-expression, it can then be evaluated as Lisp code. (not every s-expression can be
+evaluated)
+
+Common Lisp's evaluation rules defines another level of syntax dictating which s-expression can be treated as
+Lisp forms.
+- Any atom
+- any list that has symbol as first element
+
+Evaluating atoms is easy. Atoms can be divied into two categories: symbols and everything else. A symbol is
+considered the name of a variable when evaluated as a form and is thus evaluated to the current value of the
+variable. All other atoms are /self-evaluating/ objects. Examples: ~10~, ~"hello, world"~.
+
+Symbols can also be self evaluating. Example ~T~ and ~NIL~, the canonical true and false values. /Keywords/ symbols
+are self evaluating.
+Keywords symbols are symbols with name starting with colon (:). When reader [[*Interning a symbol][interns]] such a name, it defines
+a constant variable with the name and with the symbol as the value.
+
+*** Evaluating Lists
+There are three kinds of list forms which are evaluated in different ways. The evaluater must determine if the
+symbol at the start of list is a function, a macro or a special operator. If the symbol has not been defined yet,
+it is assumed to be a function name,
+
+**** Function Calls
+evaluate the remaining elements of the list as Lisp forms and pass the resulting values to the named function.
+(+ 1 2): here 1 is evaluated to 1 and 2 to 2 which are then passed to + function.
+
+**** Special Operators
+special operators are defined by common lisp to do the things functions can't. 25 total special operators.
+when the first element of a list is a symbol naming a special character, the rest of the expressions are
+evaluated according to the rule for that operator.
+***** Example: If
+evaluate the first expression. if it evaluated to non-nil, then evaluate the next expression and return its value.
+otherwise return the value of evaluating the third expression or NIL if third expression is omitted
+
+***** Example: Quote
+this takes a single expression as its argument and simply returns the expression unevaluated
+(quote (+ 1 2)) simply returns the list (+ 1 2)
+it has a shorthand as it is very commonly used. `(+ 1 2)
+
+**** Macros
+macro is evaluated in two phases. first the elements of macro form are passed to the macro function unevaluated.
+second the form returned by the macro function (called its expansion) is evaluated according to normal evaluation
+rules.
+
+** Truth, Falsehood, and Equality
+The symbol ~NIL~ is the only false value, everything else is true. The symbol ~T~ is the canonical true value.
+~NIL~ is an atom as well as an empty list.
+
+*** Object Equality
+two objects are ~EQ~ if they are identical. the object identity of numbers or characters are implementation
+dependent. so don't use ~EQ~ to compare values that may be numbers or characters.
+
+*** EQL
+it is similar to ~EQ~ but with the added guarantee that two objects of same class representing the same numeric
+or character value are equivalent.
+
+*** Equal
+loose form of ~EQL~ where lists are considered equal if they have same structure and content, recursively, according
+to ~EQUAL~
+also considers strings equal if they have same characters.
+looser definations for bit vectors and pathnames
+
+*** Equalp
+looser form of ~EQUAL~
+strings are equal if they have same characters, case insensitive.
+two characters are also equivalent if only differ in case
+numbers with same mathematical values are equal too. (equalp 1 1.0) is true
+list with ~EQUALP~ elements are ~EQUALP~. same with arrays.
+it also defines special rules for some other data types (apparently im not allowed to know about them yet)
+and for all other datatypes it falls back to ~EQL~.
+
+
+* What the hell does it mean?
+
+** Interning a symbol
+to make sure that the same name is always read as the same symbol, the reader *interns* symbols. That means
+after it has read the name and converted it to all uppercase, the reader looks in a table called /package/ for
+existing symbol with the same name. If it can't find one, it creates a new symbol and adds it to the table.
+Otherwise, it returns the symbol already in the table.

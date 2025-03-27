@@ -1,0 +1,30 @@
+#+TITLE:Formatting Lisp Code 
+#+AUTHOR: faultypointer
+#+DATE: 2025-03-27
+
+
+** Proper Indentation
+indentation should reflect the structure of the code
+so that counting parenthesis is not necessary
+each new level of nesting gets indented a bit more
+if line breaks are necessary, items at the same level are lined up
+#+begin_src lisp
+  (som-function arg-with-a-long-name
+                another-arg-with-an-even-longer-name)
+#+end_src
+
+this along with rest of the stuff is handled by the lisp environment
+
+
+** Closing parentheses
+are always put on the same line as the last element of the list they are closing.
+
+** Comments
+;;;; four for file headers
+
+;;; three for paragraph comments that applies to a large
+;;; section of code
+
+;; two for code that follows
+
+; one for this line
