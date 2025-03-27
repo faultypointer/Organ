@@ -15,7 +15,7 @@ With my very very very limited knowledge of lisp, to find the multiples of 3.
 
 and i could not figure out a way to generate a range of numbers.
 so first a function to generate list upto certain number.
-#+begin_src lisp
+#+begin_src lisp :exports both
   (defun range (n)
     (loop for i from 1 to n collect i))
 
@@ -27,7 +27,7 @@ so first a function to generate list upto certain number.
 
 Now removing everything besides multiple of 3.
 
-#+begin_src lisp
+#+begin_src lisp :exports both
       (defun purge-non-multiple (nrange)
         (remove-if-not
          #'(lambda (x) (equal (mod x 3) 0))
@@ -41,7 +41,7 @@ Now removing everything besides multiple of 3.
 
 putting that lambda code in a function. and while we are at it lets check for multiple of 5 as well
 
-#+begin_src lisp
+#+begin_src lisp :exports both
   (defun is-multiple (x)
     (or
      (equal (mod x 3) 0)
@@ -55,7 +55,7 @@ putting that lambda code in a function. and while we are at it lets check for mu
 
 finally bringing it all together
 
-#+begin_src lisp
+#+begin_src lisp :exports both
   (reduce #'+ (remove-if-not 'is-multiple (range 999))) 
 #+end_src
 
