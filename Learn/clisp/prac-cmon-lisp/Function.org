@@ -1,0 +1,174 @@
+#+title: Function
+#+author: faultypointer
+#+date: <2025-03-28 Fri>
+
+
+* Defining New Functions
+Functions are of form shown below.
+#+begin_src lisp
+(defun name (parameter*)
+  "Optional documentation string."
+  body-form*)
+#+end_src
+A function is  defined by ~defun~ macro.
+
+Then follows the function name.
+
+Then the parameter list which defines the variables used to hold the arguments passed to the function. If function takes no argument the list is empty
+
+the documentation string may optionally follow after parameter list describing the purpose of the function.
+
+finally the body of the function containing any number of Lisp expressions. they will be evaluated and the value of the last expression is returned. or ~RETURN-FROM~ special operator can be used to return immediately.
+
+** Some Naming Conventions while defining functions
+use `-` insead of inner caps or underscores so ~foo-bar~ not ~fooBar~ or ~foo_bar~
+
+`->` are sometimes used to name functions that convert one kind of value to another kind.
+for example ~string->widget~
+
+some programmers start low-level functions name with '%' or '%%'
+
+** Parameter List
+When the parameter list is a simple list like ~(x, y)~, the parameters are called /required/ parameters. when called, one argument must be passed for every required parameter.
+
+*** Optional Parameters
+#+begin_src lisp :exports both 
+(defun foo (a b &optional (c 5) d) (list a b c d))
+
+(format nil "(foo 1 2) ==> ~a~%~
+(foo 1 2 3) ==> ~a~%~
+(foo 1 2 3 4) ==> ~a"
+        (foo 1 2)
+        (foo 1 2 3)
+        (foo 1 2 3 4))
+#+end_src
+
+#+RESULTS:
+: (foo 1 2) ==> (1 2 5 NIL)
+: (foo 1 2 3) ==> (1 2 3 NIL)
+: (foo 1 2 3 4) ==> (1 2 3 4)
+
+It is an error to pass less than 2 or more than 4 arguments.
+
+*default parameter using previous parameters from the list* 
+#+begin_src lisp
+(defun make-rect (width &optional (height width)))
+#+end_src
+
+here when height argument is not supplied, it takes the value supplied to width thus making a square.
+
+*did the caller pass the argument or is it a default*
+well you can find out easily
+#+begin_src lisp
+(defun foo (a b &optional (c 3 c-supplied-p))
+  (list a b c c-supplied-p))
+
+(format nil "(foo 1 2) ==> ~a~%~
+(foo 1 2 3) ==> ~a~%~
+(foo 1 2 3 4) ==> ~a"
+        (foo 1 2)
+        (foo 1 2 3)
+        (foo 1 2 4))
+
+#+end_src
+
+#+RESULTS:
+: (foo 1 2) ==> (1 2 3 NIL)
+: (foo 1 2 3) ==> (1 2 3 T)
+: (foo 1 2 3 4) ==> (1 2 4 T)
+
+*** Rest Parameters
+variable number of arguments using ~&rest~. the remaining argument after assigning to required and optional are then assigned to ~&rest~ parameter.
+
+examples
+#+begin_src lisp
+(defun format (stream string %rest values) ...)
+(defun + (&rest numbers) ...)
+#+end_src
+
+*** Keywords Parameters
+#+begin_src lisp
+(defun foo (&key a b c) (list a b c))
+(defun fooo (&key (a 0) (b 0 b-supplied-p) (c (+ a b)))
+  (list a b c b-supplied-p))
+#+end_src
+
+
+when the function is called, each keyword parameters is bound to the value immediately following a keyword with the same name. if a given keyword doesnt appear, then the corresponding parameter is assigned its default value.
+
+or you can even do this
+#+begin_src lisp
+(defun foo (&key ((:apple a)) ((:box b) 0) ((:charlie c) 0 c-supplied-p))
+  (list a b c c-supplied-p))
+#+end_src
+
+*** Mixing Parameter Types
+the order is important
+first the required parameters, then optional then rest and then only keyword parameters.
+
+dont combine ~&optional~ and ~&key~ parameters.
+
+combining ~&rest~ and ~&key~ is safe but the keywords and their value are gathered into a list and  bound to the rest parameter as well as key parameters are bound to their appropriate value
+
+** Return Values
+*RETURN-FROM* is a special operator used to return value immediately from the function (or any *BLOCK* for that matter). it takes the name of the block from which to return as first argument (the name is not evaluated)
+
+#+begin_src lisp
+(defun foo (n)
+  (dotimes (i 10)
+    (dotimes (j 10)
+      (when (> (* i j) n)
+        (return-from foo (list i j))))))
+#+end_src
+
+* Higher Order Functions
+functions are just another kind of objects.
+*what does ~defun~ really do?*
+it creates a new function object and gives it a name.
+#+begin_src lisp :exports both
+(format nil "~a" (macroexpand-1 '(defun foo (x y) (list (x y)))))
+#+end_src
+
+#+RESULTS:
+: (PROGN
+:  (EVAL-WHEN (COMPILE-TOPLEVEL) (%COMPILER-DEFUN 'FOO T NIL NIL))
+:  (%DEFUN 'FOO
+:          (NAMED-LAMBDA FOO
+:              (X Y)
+:            (BLOCK FOO (LIST (X Y))))))
+
+i don't understand the top three lines entirely. the bottom three i can guess.
+the last line describes a block with name foo. the two before that seems to be defining a named lambda function
+
+** Some Freaky stuff: FUNCALL and APPLY
+#+begin_src lisp
+(defun plot (fn min max step)
+    (with-output-to-string (*standard-output*)
+      (loop for i from min to max by step do
+        (loop repeat (funcall fn i) do (format t "*"))
+        (format t "~%"))))
+
+(plot #'exp 0 4 1/2)
+#+end_src
+
+#+RESULTS:
+: *
+: **
+: ***
+: *****
+: ********
+: *************
+: *********************
+: **********************************
+: *******************************************************
+
+the ~#'~ stuff is a shorthand for special operator ~FUNCTION~ that gets the function object with the given name.
+
+the ~(funcall fn arguments*)~ calls function named ~fn~ with the arguments.
+
+
+if you think thats cool, wait till you hear about ~APPLY~. it accepts function object as a first argument and list as a second argument. it then applies the function to the values in the list.
+
+so you could do something like this ~(apply #'plot plot-data)~ where plot-data is a list containing the function min max and steps
+
+so even something like this ~(apply #'plot #'exp plot-data)~ where plot data only contained min max and step.
