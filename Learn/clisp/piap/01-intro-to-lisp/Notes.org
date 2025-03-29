@@ -1,0 +1,11 @@
+#+title: Notes
+#+author: faultypointer
+#+date: <2025-03-29 Sat>
+
+* Variables
+variables take on a value. one way to set variables is with ~setf~
+
+#+begin_src lisp :exports both
+(setf x 10)
+(format nil "~a" (+ x x))
+#+end_src

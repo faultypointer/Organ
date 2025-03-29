@@ -12,6 +12,7 @@ for nothing. Infact I'm quite liking lisp. and who knows maybe I'll even learn t
 
 * How?
 At the moment, I'm just following the book [[https://gigamonkeys.com/book/][Practical Common Lisp]] by /Peter Seibel/.
+I also found [[https://norvig.github.io/paip-lisp/#/][this book]] by /Peter Norvig/. I've yet to read but it seems really good.
 
 * Notable Notes
 - [[file:prac-cmon-lisp/cd-db/macro.org][macro.org]]

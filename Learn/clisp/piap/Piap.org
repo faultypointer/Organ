@@ -1,0 +1,5 @@
+#+title: Paradigms of Artificial Intelligence Programming
+#+author: faultypointer
+#+date: <2025-03-29 Sat>
+
+Notes and Exercises from the [[https://norvig.github.io/paip-lisp/#/][Paradigms of Artificial Intelligence Programming]] by Peter Norvig.

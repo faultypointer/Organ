@@ -1,0 +1,214 @@
+#+title: Exercises
+#+author: faultypointer
+#+date: <2025-03-29 Sat>
+
+* Define a version of ~last-name~
+that handles "Rex Morgan MD," "Morton Downey, Jr.," and whatever other cases you can think of.
+
+similar but for first name is given in the text
+#+begin_src lisp
+(defparameter *titles*
+  '(Mr Mrs Miss Ms Sir Madam Dr Admiral Major General)
+  "A list of titles that can appear at the start of a name.")
+
+(defun first-name (name)
+  "Select the first name from a name represented as a list."
+  (if (member (first name) *titles*)
+      (first-name (rest name))
+      (first name)))
+#+end_src
+
+so an equivalent to ~rest~ that returns everything but the last element.
+
+ive looked around and didn't find anything. so reverse it is
+
+
+#+begin_src lisp
+(defun last-name (name)
+  (if (member (first (last name)) '(MD JR JR.))
+      (last-name (reverse (rest (reverse name))))
+      (first (last name))))
+
+(format nil "~a" (last-name '(Morton Downey Jr.)))
+#+end_src
+
+#+RESULTS:
+: DOWNEY
+
+I don't know if im supposed to handle the comma. 
+
+
+* Write a function to exponentiate
+or raise a number to an integer power. For example: ~(power 3 2)~ = \(3^2\) = 9.
+
+idk if im supposed to loop up things like ~loop~.
+
+well recursion to the rescue
+
+#+begin_src lisp
+(defun power (base exponent)
+  (if (= exponent 0) 1
+      (if (= exponent 1) base
+          (power (* base base) (- exponent 1)))))
+
+(power 3 2)
+#+end_src
+
+#+RESULTS:
+: 9
+
+It obviously doesn't work for negative numbers.
+
+** Answer from Book
+#+begin_src lisp
+(defun power (x n)
+  "Power raises x to the nth power.  N must be an integer >= 0.
+   This executes in log n time, because of the check for even n."
+  (cond ((= n 0) 1)
+        ((evenp n) (expt (power x (/ n 2)) 2))
+        (t (* x (power x (- n 1))))))
+#+end_src
+
+so ~cond~ is like switch but tests are evaluated one at a time in the order defined
+if n is 0 return 1
+if n is even then expt!!
+apparently expt "returns base-number raised to the power power-number"
+isn't that kinda cheating.
+anyway so if its even it computes the  x to the power of n/2 (recursively) to the power of 2 using expt
+if odd then normal recursive multiplication
+
+* Write a function that counts the number of atoms
+in an expression. For example: ~(count-atoms '(a (b) c))~ = 3. Notice that there is something of an ambiguity in this: should ~(a nil c)~ count as three atoms, or as two, because it is equivalent to ~(a () c)~?
+
+so how do i go about this.
+I'm asuming its not as simple of as the length of list being passed. if the passed thing was ~'(a (b c (d e) f) g)~ it would print 7 i guess. so how to do. lets ignore the nil stuff for now.
+so i can see if its an atom using ~atom~.
+#+begin_src lisp
+(atom 1)
+#+end_src
+
+#+RESULTS:
+: T
+
+so again recursion?
+#+begin_src lisp
+(defun count-atoms (exp)
+  (if (atom exp)
+      (if exp 1 0)
+      (+ (count-atoms (first exp)) (count-atoms (rest exp)))))
+(count-atoms '(1 2(3 4 (5 nil  6) ()  7) 8))
+#+end_src
+
+#+RESULTS:
+: 8
+
+im not counting the nil as an atom
+
+** Answer from book
+
+
+#+begin_src lisp
+(defun count-atoms (exp)
+  "Return the total number of non-nil atoms in the expression."
+  (cond ((null exp) 0)
+        ((atom exp) 1)
+        (t (+ (count-atoms (first exp))
+              (count-atoms (rest exp))))))
+
+(defun count-all-atoms (exp &optional (if-null 1))
+  "Return the total number of atoms in the expression,
+  counting nil as an atom only in non-tail position."
+  (cond ((null exp) if-null)
+        ((atom exp) 1)
+        (t (+ (count-all-atoms (first exp) 1)
+              (count-all-atoms (rest exp) 0)))))
+#+end_src
+
+the not-nil version is exactly like mine except using ~cond~ instead of ~if~.
+for nil version, it has an additional optional parameter to check if the nil comes from the expression itself or result of rest on list with single expression. 
+
+* Write a function that counts
+the number of times an expression occurs anywhere within another expression. Example: ~(count-anywhere 'a '(a ((a) b) a))~ => 3.
+
+hmmmmmmmmmm
+#+begin_src lisp
+(eql 'a 'a)
+#+end_src
+
+#+RESULTS:
+: T
+
+okay.
+
+#+begin_src lisp
+(defun count-anywhere (exp ano-exp)
+  (if (atom ano-exp)
+      (if (eql exp ano-exp) 1 0)
+      (+ (count-anywhere exp (first ano-exp)) (count-anywhere exp (rest ano-exp)))))
+(count-anywhere 'a '(a ((a) b) a))
+#+end_src
+
+#+RESULTS:
+: 3
+
+** Answer from book
+#+begin_src lisp
+(defun count-anywhere (item tree)
+  "Count the times item appears anywhere within tree."
+  (cond ((eql item tree) 1)
+        ((atom tree) 0)
+        (t (+ (count-anywhere item (first tree))
+              (count-anywhere item (rest tree))))))
+#+end_src
+
+this one is more general i think.
+
+* Write a function to compute the dot product
+of two sequences of numbers, represented as lists. The dot product is computed by multiplying corresponding elements and then adding up the resulting products. Example:
+~(dot-product '(10 20) '(3 4))~ = 10 x 3 + 20 x 4 = 110
+
+apply? right no it was not
+apply is for applying a function to just a bunch of elements in a list
+the thing i was looking for was mapcar
+#+begin_src lisp
+(mapcar #'* '(10 20) '(3 4))
+#+end_src
+
+#+RESULTS:
+| 30 | 80 |
+
+and now i use apply
+
+#+begin_src lisp
+(defun dot-product (vec1 vec2)
+  (apply #'+ (mapcar #'* vec1 vec2)))
+
+(dot-product '(10 20) '(3 4))
+#+end_src
+
+#+RESULTS:
+: 110
+
+** Answer from book
+#+begin_src lisp
+(defun dot-product (a b)
+  "Compute the mathematical dot product of two vectors."
+  (if (or (null a) (null b))
+      0
+      (+ (* (first a) (first b))
+         (dot-product (rest a) (rest b)))))
+
+(defun dot-product (a b)
+  "Compute the mathematical dot product of two vectors."
+  (let ((sum 0))
+    (dotimes (i (length a))
+      (incf sum (* (elt a i) (elt b i))))
+    sum))
+
+(defun dot-product (a b)
+  "Compute the mathematical dot product of two vectors."
+  (apply #'+ (mapcar #'* a b)))
+#+end_src
+
+this ones self explanatory i guess.
+elt is element at i guess. incf increments the value by a number
