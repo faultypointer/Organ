@@ -172,3 +172,7 @@ if you think thats cool, wait till you hear about ~APPLY~. it accepts function o
 so you could do something like this ~(apply #'plot plot-data)~ where plot-data is a list containing the function min max and steps
 
 so even something like this ~(apply #'plot #'exp plot-data)~ where plot data only contained min max and step.
+
+* Anonymous Functions
+~LAMBDA~ expression to create anonymous functions
+~(lambda (parameters) body)

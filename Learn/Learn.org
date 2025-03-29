@@ -14,3 +14,4 @@ so empty...
 <2025-03-26 Wed> [[file:clisp/CLisp.org][common lisp]] finished chapter 3.
 <2025-03-27 Thu> [[file:clisp/CLisp.org][common lisp]] finished chapter 4.
 <2025-03-28 Fri> [[file:clisp/CLisp.org][common lisp]] nearly finished chapter 5.
+<2025-03-29 Sat> [[file:clisp/CLisp.org][common lisp]] finished chapter 5 of practical common lisp. and intro to lisp chapter of [[file:clisp/piap/Piap.org][PIAP]].

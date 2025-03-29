@@ -8,4 +8,7 @@ variables take on a value. one way to set variables is with ~setf~
 #+begin_src lisp :exports both
 (setf x 10)
 (format nil "~a" (+ x x))
-#+end_src
+#+END_SRC
+
+#+RESULTS:
+: 20
