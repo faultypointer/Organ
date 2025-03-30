@@ -1,0 +1,53 @@
+#+title: Vocab
+#+author: faultypointer
+#+date: <2025-03-30 Sun>
+
+This notes contains the Lisp functions, macros and special operators I've come across.
+
+
+
+* TODO Add these to the vocab
+- apply
+- funcall
+- mapcar
+- let
+- if
+- cond
+- defun
+- defparameter
+- append
+- elt
+- assoc
+- mappend
+
+
+* Index
+Ranking is based on the rough estimate of how much I've come across or used them and also my personal preference.
+| Name   | Type     | Description              | Ranking |
+|--------+----------+--------------------------+---------|
+| FORMAT | function | produce formatted output | 100     |
+
+* Functions
+** FORMAT
+*** Syntax
+~format destination control-string &rest args~ => result
+*** Arguments and return values
+destination: nil, t, a [[https://www.lispworks.com/documentation/HyperSpec/Body/26_glo_s.htm#stream][stream]], a string with a [[https://www.lispworks.com/documentation/HyperSpec/Body/26_glo_f.htm#fill_pointer][fill pointer]]
+control-string: a [[https://www.lispworks.com/documentation/HyperSpec/Body/26_glo_f.htm#format_control][format control]]
+args: [[https://www.lispworks.com/documentation/HyperSpec/Body/26_glo_f.htm#format_argument][format arguments]] for control-string
+result: destination is non-nil, then nil otherwise a string
+*** Description
+format produces formatted output by outputting the characters of control-string and observing that a tilde introduces a directive. The character after the tilde, possibly preceded by prefix parameters and modifiers, specifies what kind of formatting is desired. Most directives use one or more elements of args to create their output.
+
+*** Examples
+#+begin_src lisp
+(format t "hello world")
+(format nil "~a" (list 1 2 3))
+#+end_src
+
+#+RESULTS:
+: (1 2 3)
+
+* Macros
+
+* Special Operator

@@ -1,0 +1,43 @@
+#+title: Variables
+#+author: faultypointer
+#+date: <2025-03-30 Sun>
+
+Common lisp supports two kinds of variable: lexical and dynamic.
+
+* Basics
+Variables are named places that can hold a value. eg: function parameters.
+
+other ways to create variables is with ~LET~ special operator.
+~(let (variable*) body-form*)~
+where each /variable/ is a variable initialization form.
+eg: ~(let ((x 10) (y 20) z) ...)~ here x is initialized to 10, y to 20 and z to nil.
+
+binding of the innermost variable /shadows/ the outer bindings.
+
+#+begin_src lisp
+(defun foo (x)
+  (format t "Parameter: ~a~%" x) ; |<------ x is argument
+  (let ((x 2)) ; |
+    (format t "Outer LET: ~a~%" x) ; | |<---- x is 2
+    (let ((x 3)) ; | |
+      (format t "Inner LET: ~a~%" x)) ; | | |<-- x is 3
+    (format t "Outer LET: ~a~%" x)) ; | |
+  (format t "Parameter: ~a~%" x))
+#+end_src
+
+there is also ~LET*~ where the initial value forms of each variable can refer to the variables defined before. This was not possible in ~LET~ where variables can only be used in body-form.
+
+* Lexical Variables and Closures
+Lexically scoped variables can be referred to only by the code that is within the binding form.
+
+** closure
+~(let ((count 0)) #'(lambda () (setf count (1+ count))))~
+Here the let returns a function which has reference to count variable defined by the let. so when using this function should not be allowed outside the let binding and thus not be able to call the anonymous function right? wrong. the binding of count will stick around as long as needed. The anonymous function is called a *closure* as it closes over the binding created by let.
+
+*closure is a binding*
+
+* Dynamic Variables
+two ways to create them global variables
+
+*DEFVAR* and *DEFPARAMETER*
+defparameter always assigns the initial value to the named variable while defvar only does it if the variable is undefined.

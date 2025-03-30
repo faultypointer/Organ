@@ -1,0 +1,46 @@
+#+title: Exercise
+#+author: faultypointer
+#+date: <2025-03-30 Sun>
+
+* Write a version of ~generate~ that used ~cond~ but avoids calling rewrites twice.
+this is the og version of ~generate~
+#+begin_src lisp
+(defun generate (phrase)
+  "Generate a random sentence or phrase"
+  (cond ((listp phrase)
+         (mappend #'generate phrase))
+        ((rewrites phrase)
+         (generate (random-elt (rewrites phrase))))
+        (t (list phrase))))
+#+end_src
+
+here in the second condition the rewrite is called twice, one to check if rewrites exists for a pharse and doesn't just return nil and the second time to get the actual list. we can use ~let~ to bind the rewrites of the phrase of variable. but i dont think that is possible inside ~cond~.
+so probably have to write cond inside the let.
+
+#+begin_src lisp
+(defun generate-ex1 (phrase)
+  "revised version of generate for exercise 2.1 that doesn't call rewrites twice"
+  (let ((phrase-rewrites (rewrites phrase)))
+    (cond ((listp phrase)
+          (mappend #'generate phrase))
+    (phrase-rewrites (generate (random-elt phrase-rewrites)))
+    (t (list phrase)))))
+#+end_src
+
+#+begin_src lisp :exports both
+(format nil "~a~%~a~%~a~%" (generate-ex1 'sentence) (generate-ex1 'sentence) (generate-ex1 'noun-phrase))
+#+end_src
+
+#+RESULTS:
+: (THE MAN SAW THE BALL)
+: (A BALL TOOK A MAN)
+: (THE BALL)
+
+* Write a version of ~generate~
+that explicitly differentiates between terminal symbols (no rewrite rules) and nonterminating symbol.
+
+I don't clearly understand the question. I assume it's asking me to check if the phrase is terminating explicitely by checking if it is an lhs of ~*grammar*~ or something.
+
+It says differentiates so probably should be handled differently. but it is handled differently.
+I guess its asking me to check if first instead if the ~t~ condition.
+You know what I'm gonna hold off on this till i see the answer.
