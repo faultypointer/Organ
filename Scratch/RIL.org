@@ -1,6 +1,31 @@
 #+title: Read It Later
 #+author: faultypointer
 
-* Zig
+* Programming
+** Languages
+
+*** Zig
 - [ ] [[https://matklad.github.io/2025/03/19/comptime-zig-orm.html][Zig Comptime ORM]]
+
+*** Go
+- [ ] [[https://r2p.dev/b/2024-03-18-1brc-go/][1BRC in Go, from 95s to 1.96s]]
+- [ ] [[https://grafana.com/blog/2024/02/09/how-i-write-http-services-in-go-after-13-years/][How I Write HTTP services in Go]]
+- [ ] [[https://preslav.me/2022/08/09/i-dont-like-golang-default-http-handlers/][I don't like go's default http handlers]]
+- [ ] [[https://dave.cheney.net/practical-go/presentations/qcon-china.html][Practical Go: real world advice for writing mainainable go programs]]
+
+*** Python
+- [ ] [[https://marimo.io/blog/lessons-learned][Lessons Learned Reinventing Python Notebook]]
+
+** Performance and optimization
+- [ ] [[https://xuanwo.io/2023/04-rust-std-fs-slower-than-python/][Rust std fs is shower than Python?]]
+
+** Asynchronous Programming
+- [ ] [[https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/][What color is you function?]]
+
+** General
 - [ ] [[https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER_STYLE.md][TigerStyle]]
+- [ ] [[https://cacm.acm.org/research/10-things-software-developers-should-learn-about-learning/][10 things every developer should learn]]
+- [ ] [[https://mbuffett.com/posts/maintaining-motivation/][Managing My motivation, as a solo dev]]
+- [ ] [[https://antirez.com/news/124][Writing systems software: code comments]]
+- [ ] [[https://johnresig.com/blog/write-code-every-day/][Write code every day]]
+- [ ] [[https://www.piglei.com/articles/en-programmer-reading-list-part-one/][Programmer's Reading List]]
