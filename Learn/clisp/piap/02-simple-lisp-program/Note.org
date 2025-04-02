@@ -45,9 +45,9 @@ define each rule by a function and randomly choose an element for Noun, Verb and
 #+end_src
 
 #+RESULTS:
-: (THE TABLE HIT A WOMAN)
-: (A BALL LIKED A WOMAN)
-: (THE MAN TOOK THE TABLE)
+: (THE WOMAN SAW A MAN)
+: (A BALL TOOK THE TABLE)
+: (A BALL HIT THE TABLE)
 ** slightly more complex rule
 #+begin_quote
 Noun-Phrase => Article + Adj\ + Noun + PP*
@@ -79,9 +79,9 @@ now we have to use conditionals because of phi and kleene-star
 #+end_src
 
 #+RESULTS:
-: (THE MAN SAW THE MAN)
-: (THE BLUE LITTLE BALL BY A GREEN BLUE MAN TOOK THE BIG MAN IN A TABLE)
-: (THE WOMAN SAW THE WOMAN)
+: (THE ADIABATIC BLUE LITTLE BLUE MAN HIT A BALL)
+: (THE TABLE TOOK A MAN TO A BALL WITH THE BALL BY THE BLUE TABLE TO THE MAN IN A
+:      BLUE GREEN BALL ON THE TABLE BY A TABLE IN A WOMAN TO THE LITTLE TA...[sly-elided string of length 1457]
 
 
 * Rule Based Solution
@@ -136,11 +136,113 @@ now to get things from the rules
         (t (list phrase))))
 #+end_src
 
+#+RESULTS:
+: GENERATE
+
 #+begin_src lisp :exports both
 (format nil "~a~%~a~%~a~%" (generate 'sentence) (generate 'sentence) (generate 'noun-phrase))
 #+end_src
 
 #+RESULTS:
-: (A BALL TOOK A WOMAN)
-: (A TABLE SAW THE TABLE)
-: (THE BALL)
+: (A BALL SAW THE WOMAN)
+: (A BALL HIT THE BALL)
+: (A WOMAN)
+
+** Changing the grammar
+this approach (using the most natural notation available to solve the problem, and then worry about writing an interpreter for that notation) makes it easy to define new grammar without modifying the generate code.
+
+#+begin_src lisp
+(defparameter *bigger-grammar*
+  '((sentence -> (noun-phrase verb-phrase))
+    (noun-phrase -> (Article Adj* Noun PP*) (Name) (Pronoun))
+    (verb-phrase -> (Verb noun-phrase PP*))
+    (PP* -> () (PP PP*))
+    (Adj* -> () (Adj Adj*))
+    (PP -> (Prep noun-phrase))
+    (Prep -> to in by with on)
+    (Adj -> big little blue green adiabatic)
+    (Article -> the a)
+    (Name -> Pat Kim Lee Terry Robin)
+    (Noun -> man ball woman table)
+    (Verb -> hit took saw liked)
+    (Pronoun -> he she it these those that)))
+
+(setf *grammar* *bigger-grammar*)
+#+end_src
+
+#+RESULTS:
+| SENTENCE    | -> | (NOUN-PHRASE VERB-PHRASE) |            |           |       |           |      |
+| NOUN-PHRASE | -> | (ARTICLE ADJ* NOUN PP*)   | (NAME)     | (PRONOUN) |       |           |      |
+| VERB-PHRASE | -> | (VERB NOUN-PHRASE PP*)    |            |           |       |           |      |
+| PP*         | -> | NIL                       | (PP PP*)   |           |       |           |      |
+| ADJ*        | -> | NIL                       | (ADJ ADJ*) |           |       |           |      |
+| PP          | -> | (PREP NOUN-PHRASE)        |            |           |       |           |      |
+| PREP        | -> | TO                        | IN         | BY        | WITH  | ON        |      |
+| ADJ         | -> | BIG                       | LITTLE     | BLUE      | GREEN | ADIABATIC |      |
+| ARTICLE     | -> | THE                       | A          |           |       |           |      |
+| NAME        | -> | PAT                       | KIM        | LEE       | TERRY | ROBIN     |      |
+| NOUN        | -> | MAN                       | BALL       | WOMAN     | TABLE |           |      |
+| VERB        | -> | HIT                       | TOOK       | SAW       | LIKED |           |      |
+| PRONOUN     | -> | HE                        | SHE        | IT        | THESE | THOSE     | THAT |
+
+#+begin_src lisp :exports both
+(format nil "~a~%~a~%~a~%" (generate 'sentence) (generate 'sentence) (generate 'noun-phrase))
+#+end_src
+
+#+RESULTS:
+: (A MAN TOOK A WOMAN BY HE)
+: (PAT LIKED HE)
+: (A GREEN ADIABATIC BLUE WOMAN IN THE MAN BY PAT BY LEE)
+
+* Using same data for several programs
+representing information in declarative form makes it easier to use that information for multiple purposes.
+
+like generating a parse tree
+
+#+begin_src lisp
+(defun generate-tree (phrase)
+  "Generate a random sentence or phrase,
+with a complete parse tree."
+  (cond ((listp phrase)
+         (mapcar #'generate-tree phrase))
+        ((rewrites phrase)
+         (cons phrase
+               (generate-tree (random-elt (rewrites phrase)))))
+        (t (list phrase))))
+#+end_src
+
+#+RESULTS:
+: GENERATE-TREE
+
+#+begin_src lisp
+(format nil "~a" (generate-tree 'sentence))
+#+end_src
+
+#+RESULTS:
+: (SENTENCE (NOUN-PHRASE (NAME LEE))
+:           (VERB-PHRASE (VERB LIKED) (NOUN-PHRASE (PRONOUN HE)) (PP*)))
+
+also a function to generate all possible rewrites of a phrase.
+
+#+begin_src lisp
+(defun generate-all (phrase)
+  "Generate a list of all possible expansions of this phrase."
+  (cond ((null phrase) (list nil))
+        ((listp phrase)
+         (combine-all (generate-all (first phrase))
+                      (generate-all (rest phrase))))
+        ((rewrites phrase)
+         (mappend #'generate-all (rewrites phrase)))
+        (t (list (list phrase)))))
+
+(defun combine-all (xlist ylist)
+  "Return a list of lists formed by appending a y to an x.
+Eg: (combine-all '((a) (b)) '((1) (2)))
+-> ((A 1) (B 1) (A 2) (B 2))."
+  (mappend #'(lambda (y)
+               (mapcar #'(lambda (x) (append x y)) xlist))
+           ylist))
+#+end_src
+
+#+RESULTS:
+: COMBINE-ALL

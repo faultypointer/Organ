@@ -36,6 +36,21 @@ so probably have to write cond inside the let.
 : (A BALL TOOK A MAN)
 : (THE BALL)
 
+** Answer from book
+
+#+begin_src lisp
+  (defun generate (phrase)
+  "Generate a random sentence or phrase"
+  (let ((choices nil))
+    (cond ((listp phrase)
+        (mappend #'generate phrase))
+       ((setf choices (rewrites phrase))
+        (generate (random-elt choices)))
+       (t (list phrase)))))
+#+end_src
+
+this makes a little more sense i guess. why call rewrite on phrase of its a list.
+
 * Write a version of ~generate~
 that explicitly differentiates between terminal symbols (no rewrite rules) and nonterminating symbol.
 
@@ -44,3 +59,79 @@ I don't clearly understand the question. I assume it's asking me to check if the
 It says differentiates so probably should be handled differently. but it is handled differently.
 I guess its asking me to check if first instead if the ~t~ condition.
 You know what I'm gonna hold off on this till i see the answer.
+
+** Answer from book
+
+#+begin_src lisp
+(defun generate (phrase)
+  "Generate a random sentence or phrase"
+  (cond ((listp phrase)
+         (mappend #'generate phrase))
+        ((non-terminal-p phrase)
+         (generate (random-elt (rewrites phrase))))
+        (t (list phrase))))
+
+(defun non-terminal-p (category)
+  "True if this is a category in the grammar."
+  (not (null (rewrites category))))
+#+end_src
+
+* Write a trivial grammar for some other language.
+This can be a natural language other than English, or perhaps a subset of a computer language.
+
+let me try nepali
+#+begin_src lisp
+(defparameter *simple-nepali*
+  '((नाम -> राम किताब मान्छे पानी)
+    (क्रिया -> पढ्छ पिउछ मर्छ)
+    (वाक्य -> (नाम नाम क्रिया))))
+#+end_src
+
+#+RESULTS:
+: *SIMPLE-NEPALI*
+
+#+begin_src lisp
+(setf *gramamr* *simple-nepali*)
+(generate 'वाक्य)
+#+END_SRC
+
+#+RESULTS:
+| वाक्य |
+
+okay probably something wrong with unicode and copying
+how about this
+#+begin_src lisp
+(defparameter *simple-nepali*
+  '((name -> राम किताब मान्छे पानी)
+    (verb -> पढ्छ पिउछ मार्छ)
+    (sentence -> (name name verb))))
+
+(setf *grammar* *simple-nepali*)
+(generate 'sentence)
+#+end_src
+
+#+RESULTS:
+| राम | पानी | पढ्छ |
+
+i think this is it for now.
+
+* Higher Order Function for combine-all
+One way of describing combine-all is that it calculates the cross-product of the function append on the argument lists. Write the higher-order function cross-product, and define combine-all in terms of it.
+
+The moral is to make your code as general as possible, because you never know what you may want to do with it next.
+
+#+begin_src lisp
+(defun cross-product (fn xlist ylist)
+  (mappend #'(lambda (y)
+               (mapcar #'(lambda (x) (funcall fn x y)) xlist))
+           ylist))
+
+(defun combine-all (xlist ylist)
+  (cross-product #'append xlist ylist))
+#+end_src
+
+#+RESULTS:
+: COMBINE-ALL
+
+** Answer from the book
+is literally the same as above.
