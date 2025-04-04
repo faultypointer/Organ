@@ -1,0 +1,28 @@
+#+title: Exercise
+#+author: faultypointer
+#+date: <2025-04-04 Fri>
+
+* Show a lambda expression
+that is equivalent to the above(or in this case below) ~let*~ expression. you may need more than one lambda.
+
+#+begin_src lisp
+(let* ((x 6)
+       (y (* x x)))
+  (+ x y))
+#+end_src
+
+#+RESULTS:
+: 42
+
+okay so two lambda
+#+begin_src lisp
+((lambda (x)
+   (+ ((lambda (y)
+         (* y y))
+       x)
+      x))
+ 6)
+#+end_src
+
+#+RESULTS:
+: 42

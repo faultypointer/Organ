@@ -1,0 +1,11 @@
+#+title: Note
+#+author: faultypointer
+#+date: <2025-04-04 Fri>
+
+* Lisp Style
+- Be specific (eg: use when instead of if when there is only one clause)
+- Use abstractions
+- Be concise
+- Use the provided tools
+- Don't be obscure
+- Be consistent

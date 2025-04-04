@@ -17,3 +17,5 @@ so empty...
 <2025-03-29 Sat> [[file:clisp/CLisp.org][common lisp]] finished chapter 5 of practical common lisp. and intro to lisp chapter of [[file:clisp/piap/Piap.org][PIAP]].
 <2025-03-30 Sun> common lisp a half of variable (6) chapter of practical common lisp as well as half of second chapter from piap. also made a file [[file:clisp/Vocab.org][Vocab.org]] for keeping common lisp functions, macros and other stuff i learn about
 <2025-04-02 Wed> finally finished chapter 2 of piap
+<2025-04-03 Thu> finished chapter 6 of practical common lisp
+<2025-04-04 Fri> chapter 3 of piap started

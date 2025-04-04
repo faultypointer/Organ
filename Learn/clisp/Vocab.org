@@ -7,18 +7,56 @@ This notes contains the Lisp functions, macros and special operators I've come a
 
 
 * TODO Add these to the vocab
-- apply
-- funcall
-- mapcar
-- let
-- if
-- cond
-- defun
-- defparameter
-- append
-- elt
-- assoc
-- mappend
+** Special Operators / macros
+*** definations
+- [X] defun
+- [ ] defparameter
+- [ ] defstruct
+- [ ] defvar
+- [ ] defconstant
+- [ ] defmacro
+- [ ] labels
+*** conditional
+- [ ] if
+- [ ] when
+- [ ] cond
+- [ ] and
+- [ ] or
+- [ ] unless
+- [ ] case
+*** variables
+- [ ] let
+- [ ] let*
+- [ ] pop
+- [ ] push
+- [ ] setf
+- [ ] incf
+- [ ] decf
+*** iteration
+- [ ] do
+- [ ] do*
+- [ ] dolist
+- [ ] dotimes
+- [ ] loop
+*** others
+- [ ] declare
+- [ ] function
+- [ ] progn
+- [ ] quote
+- [ ] return
+- [ ] trace
+- [ ] untrace
+** Functions
+- [ ] apply
+- [ ] funcall
+- [ ] mapcar
+- [ ] append
+- [ ] elt
+- [ ] assoc
+- [ ] mappend
+- [ ] cons
+- [ ] acons
+- [X] format
 
 
 * Index
@@ -48,6 +86,31 @@ format produces formatted output by outputting the characters of control-string 
 #+RESULTS:
 : (1 2 3)
 
-* Macros
 
-* Special Operator
+* Special Operator / Macros
+
+** DEFUN
+*** Syntax
+~defun function-name lambda-list [ {declaration}* / documentation ]  {form}*~
+*** Arguments and Values
+function-name: self explanatory
+lambda list: a list of arguments. see [[file:prac-cmon-lisp/Function.org::*Parameter List][Parameter List]] for more info.
+declaration: a [[https://lisp-docs.github.io/cl-language-reference/chap-3/d-i-dictionary/declare_symbol][declare]] expression, not evaluated
+documentation: a documentation string, also not evaluated
+forms: program body
+*** Description
+defines a new function in the global environment. can be used to define a new function, to install corrected version of an incorrect defination, redefine an already defined function or to redefine a macro as a function
+*** Examples
+#+begin_src lisp :exports both
+(defun factorial (n)
+  "calculate the factorial of a number n
+n needs to be a positive integer"
+  (cond ((= n 0) 1)
+        ((= n 1) 1)
+        (t (* n (factorial (1- n))))))
+
+(factorial 5)
+#+end_src
+
+#+RESULTS:
+: 120

@@ -41,3 +41,11 @@ two ways to create them global variables
 
 *DEFVAR* and *DEFPARAMETER*
 defparameter always assigns the initial value to the named variable while defvar only does it if the variable is undefined.
+
+
+* Constant Variables
+~(defconstant name initial-value-form [documentation-string])~
+
+
+* Assignment
+~(setf place value)~
