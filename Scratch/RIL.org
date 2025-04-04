@@ -16,7 +16,9 @@
 
 **** Python
 - [ ] [[https://marimo.io/blog/lessons-learned][Lessons Learned Reinventing Python Notebook]]
-
+**** Rust
+- [ ] [[https://corrode.dev/blog/pitfalls-of-safe-rust/][Pitfalls of Safe Rust]]
+- [ ] [[https://shnatsel.medium.com/how-to-avoid-bounds-checks-in-rust-without-unsafe-f65e618b4c1e][How to avoid bounds checks in Rust]]
 *** Performance and optimization
 - [ ] [[https://xuanwo.io/2023/04-rust-std-fs-slower-than-python/][Rust std fs is shower than Python?]]
 
@@ -35,3 +37,9 @@
 ** Programming
 *** System Design
 - [ ] Data Oriented Design by Richard Fabian
+*** Oxidized Learning
+- [ ] Interpreter in Go
+- [ ] Compiler in Go
+- [ ] Crafting Interpreter
+- [ ] [[https://viewsourcecode.org/snaptoken/kilo/][Build Your Own Text Editor]]
+- [ ] [[https://www.leshenko.net/p/ugit/][Learn By Building Your Own Git]]
