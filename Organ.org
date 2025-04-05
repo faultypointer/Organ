@@ -7,3 +7,18 @@
 - *Project*: contains informations about projects im currently working on or ones ive done
 - *Blog*: this includes my blog posts including drafts
 - *Scratch*: this includes everything else like my readlist, watchlist, ideas etc
+
+* Agenda
+** TODO Daily
+- [X] Read something from [[file:Scratch/RIL.org][RIL]] [[[https://xuanwo.io/2023/04-rust-std-fs-slower-than-python/][today]]]
+- [X] some lisp learning/programming
+- [X] one lisp [[file:Learn/clisp/Vocab.org][vocab]] a day
+
+
+** TODO Today
+
+
+** TODO Weekly
+
+
+** TODO This Week
