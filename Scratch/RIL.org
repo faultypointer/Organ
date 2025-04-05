@@ -20,7 +20,9 @@
 - [ ] [[https://corrode.dev/blog/pitfalls-of-safe-rust/][Pitfalls of Safe Rust]]
 - [ ] [[https://shnatsel.medium.com/how-to-avoid-bounds-checks-in-rust-without-unsafe-f65e618b4c1e][How to avoid bounds checks in Rust]]
 *** Performance and optimization
-- [ ] [[https://xuanwo.io/2023/04-rust-std-fs-slower-than-python/][Rust std fs is shower than Python?]]
+- [X] [[https://xuanwo.io/2023/04-rust-std-fs-slower-than-python/][Rust std fs is shower than Python?]]
+  yes and no. it was amd ucode stuff (didn't understand much of the low level stuff)
+  look into jemalloc, strace
 
 *** Asynchronous Programming
 - [ ] [[https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/][What color is you function?]]
