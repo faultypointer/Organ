@@ -1,0 +1,10 @@
+#+title: Watch It Later
+#+author: faultypointer
+#+date: <2025-04-05 Sat>
+
+* Programming Talks
+** Rust
+- [ ] [[https://www.youtube.com/watch?v=DG-VLezRkYQ][Unsafe Rust is not C]]
+- [ ] [[https://www.youtube.com/watch?v=3OL95gZgPWA][Implementing Rust's Vec From Scratch]]
+- [ ] [[https://www.youtube.com/watch?v=NNwK5ZPAJCk][The Talk You've Been Await-ing for]]
+- [ ] [[https://www.youtube.com/watch?v=bnnacleqg6k][Type Driven API Design in Rust]]
