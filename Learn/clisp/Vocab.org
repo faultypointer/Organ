@@ -50,6 +50,7 @@ This notes contains the Lisp functions, macros and special operators I've come a
 - [ ] apply
 - [ ] funcall
 - [ ] mapcar
+- [ ] mapc
 - [ ] append
 - [ ] elt
 - [ ] assoc
@@ -61,9 +62,12 @@ This notes contains the Lisp functions, macros and special operators I've come a
 
 * Index
 Ranking is based on the rough estimate of how much I've come across or used them and also my personal preference.
-| Name   | Type     | Description              | Ranking |
-|--------+----------+--------------------------+---------|
-| FORMAT | function | produce formatted output | 100     |
+| Name   | Type     | Description                                | Ranking |
+|--------+----------+--------------------------------------------+---------|
+| [[*FORMAT][FORMAT]] | function | produce formatted output                   |     100 |
+| [[*DEFUN][DEFUN]]  | macro    | define a function                          |     300 |
+| [[*MAPCAR][MAPCAR]] | function | call a function for each element in a list |     250 |
+|        |          |                                            |         |
 
 * Functions
 ** FORMAT
@@ -86,6 +90,20 @@ format produces formatted output by outputting the characters of control-string 
 #+RESULTS:
 : (1 2 3)
 
+** MAPCAR
+*** Syntax
+~mapcar function &rest lists+~ -> result-list
+*** Arguments and return values
+function: a designator for a function that must take as many arguments as there are lists
+*** Description
+mapcar operates on successive elements of the lists. function is applied to the first element of each list, then to the second element of each list, and so on. The iteration terminates when the shortest list runs out, and excess elements in other lists are ignored. The value returned by mapcar is a list of the results of successive calls to function.
+*** Examples
+#+begin_src lisp : :exports both
+(mapcar #'+ '(1 2 3) '(10 20 30) '(100 200 300))
+#+end_src
+
+#+RESULTS:
+| 111 | 222 | 333 |
 
 * Special Operator / Macros
 
