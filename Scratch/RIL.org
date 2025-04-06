@@ -25,7 +25,8 @@
   look into jemalloc, strace
 
 *** Asynchronous Programming
-- [ ] [[https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/][What color is you function?]]
+- [X] [[https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/][What color is you function?]]
+  no async and sync stuff. instead threads. otherwise whole lots of problem. and go is the best lang.
 
 *** General
 - [ ] [[https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER_STYLE.md][TigerStyle]]

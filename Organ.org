@@ -10,13 +10,13 @@
 
 * Agenda
 ** TODO Daily
-- [X] Read something from [[file:Scratch/RIL.org][RIL]] [[[https://xuanwo.io/2023/04-rust-std-fs-slower-than-python/][today]]]
+- [X] Read something from [[file:Scratch/RIL.org][RIL]] [[[https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/][today]]]
 - [X] some lisp learning/programming
 - [X] one lisp [[file:Learn/clisp/Vocab.org][vocab]] a day
 
 
 ** TODO Today
-
+- [X] check the fusemachine exam av, screensharing test on gnome
 
 ** TODO Weekly
 
