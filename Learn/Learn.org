@@ -20,6 +20,7 @@ so empty...
 <2025-04-03 Thu> finished chapter 6 of practical common lisp
 <2025-04-04 Fri> chapter 3 of piap started
 <2025-04-05 Sat> more chapter 3 of piap
+<2025-04-06 Sun> more chapter 3 of piap (very slow progress)
 
 * Should Learn about these stuff
 - [ ] strace and how to use it
