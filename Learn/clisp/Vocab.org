@@ -19,7 +19,7 @@ This notes contains the Lisp functions, macros and special operators I've come a
 *** conditional
 - [ ] if
 - [ ] when
-- [ ] cond
+- [X] cond
 - [ ] and
 - [ ] or
 - [ ] unless
@@ -64,9 +64,10 @@ This notes contains the Lisp functions, macros and special operators I've come a
 Ranking is based on the rough estimate of how much I've come across or used them and also my personal preference.
 | Name   | Type     | Description                                | Ranking |
 |--------+----------+--------------------------------------------+---------|
-| [[*FORMAT][FORMAT]] | function | produce formatted output                   |     100 |
 | [[*DEFUN][DEFUN]]  | macro    | define a function                          |     300 |
 | [[*MAPCAR][MAPCAR]] | function | call a function for each element in a list |     250 |
+| [[*COND][COND]]   | macro    | switch + if                                |     150 |
+| [[*FORMAT][FORMAT]] | function | produce formatted output                   |     100 |
 |        |          |                                            |         |
 
 * Functions
@@ -132,3 +133,18 @@ n needs to be a positive integer"
 
 #+RESULTS:
 : 120
+** COND
+*** Syntax
+~cond {clause}*~ -> {result}*
+clause ::= (test-form {form}*)
+*** Arguments and Values
+test-form: a form; test condtion
+result: the values of the forms in the first clause whose test-form yields true, or the primary value of the test-form if there are no forms in that clause, or else nil if no test-form yields true.
+
+*** Description
+its like switch and if combined.
+the first test-form that matches, its form is evaluated and also returned as result. if that test-form doesnt have a form then the primary value of that test form is returned.
+if no test-form is evaluated to true then nil is returned.
+
+*** Examples
+too lazy to add an example now  so see the example in [[*DEFUN][DEFUN]].
