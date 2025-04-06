@@ -9,3 +9,9 @@
 - Use the provided tools
 - Don't be obscure
 - Be consistent
+
+* Steps for writing macro
+- are you sure?
+- okay tell me the syntax for writing macro then
+- and what should the macro even do
+- okay then go ahead and implement it
