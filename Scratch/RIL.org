@@ -33,16 +33,26 @@
 - [ ] [[https://cacm.acm.org/research/10-things-software-developers-should-learn-about-learning/][10 things every developer should learn]]
 - [ ] [[https://mbuffett.com/posts/maintaining-motivation/][Managing My motivation, as a solo dev]]
 - [ ] [[https://antirez.com/news/124][Writing systems software: code comments]]
-- [ ] [[https://johnresig.com/blog/write-code-every-day/][Write code every day]]
 - [ ] [[https://www.piglei.com/articles/en-programmer-reading-list-part-one/][Programmer's Reading List]]
-
+- [X] [[https://johnresig.com/blog/write-code-every-day/][Write code every day]]
 * Books
 ** Programming
 *** System Design
 - [ ] Data Oriented Design by Richard Fabian
+*** OS
+- [ ] [[https://pages.cs.wisc.edu/~remzi/OSTEP/][Operating System: Three Easy Step]]
+*** Rust
+- [ ] [[https://rust-unofficial.github.io/too-many-lists/index.html][Learn Rust Entirely with Too Many LinkedList]]
+- [ ] [[https://marabos.nl/atomics/][Rust Atomics and Locks]]
 *** Oxidized Learning
 - [ ] Interpreter in Go
 - [ ] Compiler in Go
 - [ ] Crafting Interpreter
 - [ ] [[https://viewsourcecode.org/snaptoken/kilo/][Build Your Own Text Editor]]
 - [ ] [[https://www.leshenko.net/p/ugit/][Learn By Building Your Own Git]]
+
+* Subscriptions
+blogs and other stuff of people
+- https://tavianator.com/index.html
+- https://andrewkelley.me/
+- https://matklad.github.io/

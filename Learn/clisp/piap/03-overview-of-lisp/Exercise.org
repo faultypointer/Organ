@@ -26,3 +26,58 @@ okay so two lambda
 
 #+RESULTS:
 : 42
+
+* The function ~cons~
+can be seen as a special case of which one of the previously listed function.
+
+append?
+
+* Write a function
+that will print an expression in dotted pair notation. Use the built-in function princ to print each component of the expression.
+
+#+begin_src lisp
+(defun dotted-print (expr)
+    "print an expression in dotted pair notation"
+  (cond ((atom expr) (princ expr))
+        ((null (rest expr)) (princ (first expr)))
+         (t (progn (princ (first expr)) (princ " . ") (dotted-print (rest expr))))))
+#+end_src
+
+#+RESULTS:
+: DOTTED-PRINT
+
+is the question asking me to do this and get the following result
+> 1 . (2 3) . (4 5 (6 7) 8) . 9
+
+or this
+#+begin_src lisp
+(defun dotted-print (expr)
+    "print an expression in dotted pair notation"
+  (cond ((atom expr) (princ expr))
+        ((null (rest expr)) (princ (first expr)))
+         (t (progn (dotted-print (first expr)) (princ " . ") (dotted-print (rest expr))))))
+#+end_src
+
+#+RESULTS:
+: DOTTED-PRINT
+and get the result
+> 1 . 2 . 3 . 4 . 5 . 6 . 7 . 8 . 9
+
+or is it asking for completely different thing
+
+* Write a function that, like the regular ~print~ function,
+will print an expression in dotted pair notation when necessary but will use normal list notation when possible.
+
+#+begin_src lisp
+(defun regular-dotted-print (expr)
+    "print an expression in dotted pair notation"
+  (cond ((atom expr) (princ expr))
+        ((null (rest expr)) (princ (first expr)))
+        ((atom (rest expr)) (progn (princ (first expr)) (princ " . ") (princ (rest expr))))
+         (t (progn (princ (first expr)) (princ " ") (dotted-print (rest expr))))))
+#+end_src
+
+#+RESULTS:
+: REGULAR-DOTTED-PRINT
+
+this feels wrong when i see the output
