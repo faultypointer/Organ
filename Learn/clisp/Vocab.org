@@ -18,7 +18,7 @@ This notes contains the Lisp functions, macros and special operators I've come a
 - [ ] labels
 *** conditional
 - [ ] if
-- [ ] when
+- [X] when
 - [X] cond
 - [ ] and
 - [ ] or
@@ -69,6 +69,7 @@ Ranking is based on the rough estimate of how much I've come across or used them
 | [[*COND][COND]]   | macro    | switch + if                                |     150 |
 | [[*FORMAT][FORMAT]] | function | produce formatted output                   |     100 |
 | [[*CONS][CONS]]   | function | make a cons from two objects               |      50 |
+| [[*WHEN][WHEN]]   | macro    | if but no else                             |      40 |
 |        |          |                                            |         |
 
 * Functions
@@ -169,3 +170,20 @@ creates a new cons, whose car(first) is object-1 and cdr(rest) is object-2
 (cons ’a (cons ’b (cons ’c ’()))) → (A B C)
 (cons ’a ’(b c d)) → (A B C D)
 #+end_src
+
+** WHEN
+*** Syntax
+~when test-form {form}*~ -> {result}*
+*** Arguments and Values
+test-form: test
+form: progn
+result: value in forms if test-forms results true
+*** Description
+evalautes the form when test-form results to true
+*** Examples
+#+begin_src lisp
+(when t (prin1 1))
+#+end_src
+
+#+RESULTS:
+: 1

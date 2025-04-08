@@ -22,6 +22,7 @@ so empty...
 <2025-04-05 Sat> more chapter 3 of piap
 <2025-04-06 Sun> more chapter 3 of piap (very slow progress)
 <2025-04-07 Mon> even more chapter 3 of piap (there is a lot of content in this chapter and not a lot of free time)
+<2025-04-08 Tue> okay in next day or two chapter 3 is gonna finis. i promise. also ive neglecting the practical common lisp book
 
 * Should Learn about these stuff
 - [ ] strace and how to use it

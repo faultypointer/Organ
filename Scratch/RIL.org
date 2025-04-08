@@ -15,7 +15,8 @@
 - [ ] [[https://dave.cheney.net/practical-go/presentations/qcon-china.html][Practical Go: real world advice for writing mainainable go programs]]
 
 **** Python
-- [ ] [[https://marimo.io/blog/lessons-learned][Lessons Learned Reinventing Python Notebook]]
+- [X] [[https://marimo.io/blog/lessons-learned][Lessons Learned Reinventing Python Notebook]]
+  graphs rocks, design is very important, stay true to original pillar
 **** Rust
 - [ ] [[https://corrode.dev/blog/pitfalls-of-safe-rust/][Pitfalls of Safe Rust]]
 - [ ] [[https://shnatsel.medium.com/how-to-avoid-bounds-checks-in-rust-without-unsafe-f65e618b4c1e][How to avoid bounds checks in Rust]]
@@ -33,7 +34,7 @@
 - [ ] [[https://cacm.acm.org/research/10-things-software-developers-should-learn-about-learning/][10 things every developer should learn]]
 - [ ] [[https://mbuffett.com/posts/maintaining-motivation/][Managing My motivation, as a solo dev]]
 - [ ] [[https://antirez.com/news/124][Writing systems software: code comments]]
-- [ ] [[https://www.piglei.com/articles/en-programmer-reading-list-part-one/][Programmer's Reading List]]
+
 - [X] [[https://johnresig.com/blog/write-code-every-day/][Write code every day]]
 * Books
 ** Programming
@@ -56,3 +57,4 @@ blogs and other stuff of people
 - https://tavianator.com/index.html
 - https://andrewkelley.me/
 - https://matklad.github.io/
+- [[https://www.piglei.com/articles/en-programmer-reading-list-part-one/][Programmer's Reading List]]

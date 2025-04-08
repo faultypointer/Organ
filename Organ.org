@@ -10,13 +10,13 @@
 
 * Agenda
 ** TODO Daily
-- [X] Read something from [[file:Scratch/RIL.org][RIL]] [ [[https://johnresig.com/blog/write-code-every-day/][Today]] ]
+- [X] Read something from [[file:Scratch/RIL.org][RIL]] [[[https://marimo.io/blog/lessons-learned][Today]] ]
 - [X] some lisp learning/programming
 - [X] one lisp [[file:Learn/clisp/Vocab.org][vocab]] a day
 
 
 ** TODO Today
-- [X] fusemachine exam
+
 
 ** TODO Weekly
 
