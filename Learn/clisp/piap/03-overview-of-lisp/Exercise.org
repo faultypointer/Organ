@@ -81,3 +81,14 @@ will print an expression in dotted pair notation when necessary but will use nor
 : REGULAR-DOTTED-PRINT
 
 this feels wrong when i see the output
+
+* Twenty Questions
+(Exercise in altering structure.) Write a program that will play the role of the guesser in the game Twenty Questions. The user of the program will have in mind any type of thing. The program will ask questions of the user, which must be answered yes or no, or "it" when the program has guessed it. If the program runs out of guesses, it gives up and asks the user what "it" was. At first the program will not play well, but each time it plays, it will remember the user's replies and use them for subsequent guesses.
+
+first of all I don't know exactly what 20 questions game is. I know it involves asking 20 questions and guessing. I don't know what kinda questions and what kinds of things "it" can be. besides that yes it is a [h] question. how to approach this. i should probably have a tree (binary i think) of some sort. okay so apparently the question is asked as "is it a blank?" and the top categories are person place or a thing. so ((person . (...)), (place . (...)), (thing, (...)))
+
+maybe i should have record a number associated with each key like item like ((person . 3) . (...)) where 3 is the number of times the uses has thought of something that was a person.
+also apparently no proper names.
+maybe tree isn't an good option.
+(cat -> animal feline 4-legged-animal)
+something like this

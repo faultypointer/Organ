@@ -32,9 +32,10 @@
 *** General
 - [ ] [[https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER_STYLE.md][TigerStyle]]
 - [ ] [[https://cacm.acm.org/research/10-things-software-developers-should-learn-about-learning/][10 things every developer should learn]]
+- [ ] [[https://antirez.com/news/124][Writing systems software: code comments
+  ]]
 - [ ] [[https://mbuffett.com/posts/maintaining-motivation/][Managing My motivation, as a solo dev]]
-- [ ] [[https://antirez.com/news/124][Writing systems software: code comments]]
-
+  leave a little bit of code for the next day. just enough to get the engines running
 - [X] [[https://johnresig.com/blog/write-code-every-day/][Write code every day]]
 * Books
 ** Programming
@@ -58,3 +59,4 @@ blogs and other stuff of people
 - https://andrewkelley.me/
 - https://matklad.github.io/
 - [[https://www.piglei.com/articles/en-programmer-reading-list-part-one/][Programmer's Reading List]]
+- https://togglebit.io/

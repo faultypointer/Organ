@@ -41,7 +41,7 @@ This notes contains the Lisp functions, macros and special operators I've come a
 *** others
 - [ ] declare
 - [ ] function
-- [ ] progn
+- [X] progn
 - [ ] quote
 - [ ] return
 - [ ] trace
@@ -62,15 +62,16 @@ This notes contains the Lisp functions, macros and special operators I've come a
 
 * Index
 Ranking is based on the rough estimate of how much I've come across or used them and also my personal preference.
-| Name   | Type     | Description                                | Ranking |
-|--------+----------+--------------------------------------------+---------|
-| [[*DEFUN][DEFUN]]  | macro    | define a function                          |     300 |
-| [[*MAPCAR][MAPCAR]] | function | call a function for each element in a list |     250 |
-| [[*COND][COND]]   | macro    | switch + if                                |     150 |
-| [[*FORMAT][FORMAT]] | function | produce formatted output                   |     100 |
-| [[*CONS][CONS]]   | function | make a cons from two objects               |      50 |
-| [[*WHEN][WHEN]]   | macro    | if but no else                             |      40 |
-|        |          |                                            |         |
+| Name   | Type             | Description                                | Ranking |
+|--------+------------------+--------------------------------------------+---------|
+| [[*DEFUN][DEFUN]]  | macro            | define a function                          |     300 |
+| [[*MAPCAR][MAPCAR]] | function         | call a function for each element in a list |     250 |
+| [[*COND][COND]]   | macro            | switch + if                                |     150 |
+| [[*FORMAT][FORMAT]] | function         | produce formatted output                   |     100 |
+| [[*CONS][CONS]]   | function         | make a cons from two objects               |      50 |
+| [[*WHEN][WHEN]]   | macro            | if but no else                             |      40 |
+| [[*PROGN][PROGN]]  | special operator | evaluates the form                         |      40 |
+|        |                  |                                            |         |
 
 * Functions
 ** FORMAT
@@ -187,3 +188,20 @@ evalautes the form when test-form results to true
 
 #+RESULTS:
 : 1
+
+** PROGN
+*** Syntax
+~progn {form}* !{result}*~
+*** Argument and Values
+forms: a implicit form
+result: values of the forms
+*** Description
+evaluates the forms in given order
+values of the last form is returned
+*** Example
+#+begin_src lisp
+(progn (princ "hello ") (princ "world"))
+#+end_src
+
+#+RESULTS:
+: world
