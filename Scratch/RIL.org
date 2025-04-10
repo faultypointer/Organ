@@ -34,9 +34,20 @@
 - [ ] [[https://cacm.acm.org/research/10-things-software-developers-should-learn-about-learning/][10 things every developer should learn]]
 - [ ] [[https://antirez.com/news/124][Writing systems software: code comments
   ]]
-- [ ] [[https://mbuffett.com/posts/maintaining-motivation/][Managing My motivation, as a solo dev]]
+- [X] [[https://mbuffett.com/posts/maintaining-motivation/][Managing My motivation, as a solo dev]]
   leave a little bit of code for the next day. just enough to get the engines running
 - [X] [[https://johnresig.com/blog/write-code-every-day/][Write code every day]]
+
+*** Tools
+**** Emacs
+- [X] [[https://www.masteringemacs.org/article/effective-editing-movement][Effective Editing I: Movement]]
+  C-M-(f/b) for forward and backward balanced expr like quotes brackets
+  M-m beginingn of line + forward past all indentations
+  M-g M-g goto line
+  C-M-(a/e) beginning and end of function defination
+
+
+
 * Books
 ** Programming
 *** System Design
@@ -45,18 +56,24 @@
 - [ ] [[https://pages.cs.wisc.edu/~remzi/OSTEP/][Operating System: Three Easy Step]]
 *** Rust
 - [ ] [[https://rust-unofficial.github.io/too-many-lists/index.html][Learn Rust Entirely with Too Many LinkedList]]
+- [ ] [[https://doc.rust-lang.org/nightly/nomicon/intro.html][Rustonomicon]]
 - [ ] [[https://marabos.nl/atomics/][Rust Atomics and Locks]]
+- [ ] [[https://veykril.github.io/tlborm/introduction.html][The Little Book About Rust Macros]]
 *** Oxidized Learning
 - [ ] Interpreter in Go
 - [ ] Compiler in Go
 - [ ] Crafting Interpreter
 - [ ] [[https://viewsourcecode.org/snaptoken/kilo/][Build Your Own Text Editor]]
 - [ ] [[https://www.leshenko.net/p/ugit/][Learn By Building Your Own Git]]
+- [ ] [[https://blog.jse.li/posts/torrent/][Building a BitTorrent client from the ground up in Go]]
 
 * Subscriptions
-blogs and other stuff of people
+** blogs and other stuff of people
 - https://tavianator.com/index.html
 - https://andrewkelley.me/
 - https://matklad.github.io/
 - [[https://www.piglei.com/articles/en-programmer-reading-list-part-one/][Programmer's Reading List]]
 - https://togglebit.io/
+
+** Youtube
+- [[https://www.youtube.com/@jonhoo][Jon Gjengset]]

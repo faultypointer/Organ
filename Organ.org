@@ -10,10 +10,9 @@
 
 * Agenda
 ** TODO Daily
-- [X] Read something from [[file:Scratch/RIL.org][RIL]] [ [[https://mbuffett.com/posts/maintaining-motivation/][Today]]  ]
-- [X] some lisp learning/programming
+- [X] Read something from [[file:Scratch/RIL.org][RIL]] [ [[https://mbuffett.com/posts/maintaining-motivation/][T]][[https://www.masteringemacs.org/article/effective-editing-movement][oday]]  ]
 - [X] Rust LinkedList Book
-- [X] one lisp [[file:Learn/clisp/Vocab.org][vocab]] a day
+
 
 
 ** TODO Today
