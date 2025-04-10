@@ -1,0 +1,37 @@
+#+title: Going All In
+#+author: faultypointer
+#+date: <2025-04-10 Thu>
+
+In my blog [[https://faulty.carboxi.de/learning/][I Love Learning Things]], I said I have trouble focusing on a particular thing I'm learning and my mind races to the next thing it finds interesting or somethign like that. I'm okay with that but I do wanna gradually get rid of that trait (foreshadowing). And I think I've realized what the first step should be.
+
+
+I still can't choose what field I wanna work on in the future (maybe the major project can help in that aspect. hopeful). There are so many things I find interesting. Compiler Design, Operating Systems and low level stuff, Designing Algorithms, Artificial Intelligence to name a few. Backend is something I feel like I would like but as soon as I start to get into it, I wanna quit sooner. Game Development is also something I find interesting and I've tried to get into it in the past with Godot game engine but realized it's not for me. I also find Cybersecurity and Cryptography kinda interesting but have never gotten into them but with my patience, I don't think I would last even a day (atleast right now). So choosing a field is not an option right now and not the first step I'm taking about.
+
+The other aspect of this lack of focus thing is the programming language and the problem here is similar. I like a lot of language.
+
+(I thought of going into the history of programming language from my perspective, like the languages I've learned, tried etc starting from the begining, but decided against it. I would have to really think about it and today being the 2nd day out of 3 days of the exam preparation of probably the most difficult subject this semester and I wasted the first day doing shit all and yea im wasting precious time writing even this. anyway not history for now. lucky you. but not for long. i'll write that in the future maybe.)
+
+So, where was I?. Yes I like a lot of language (and it's not just limited to programming language although never been able to actually learn one except english and obviously the nepali language). C, Rust, Zig, Go are probably the top four. (not in that order) I also like odin and c3 although never have done anything with them. I have tried getting into functional programming but was unsuccessful. Currently, I'm trying to learn lisp (very slowly) but I think it is about to come to a halt. (more on that later) I don't know what to say about python. It was the first one I learned. I have some nice memories with it but it's been very long since I've done anything in it.
+But enough about the languages I like, what about the languages I hate. I hate javascript with some mild passion. Maybe it's because I'm a sheep and followed the internet. I hate javascript so much that I decided to write the backend for our minor project in it. I also kinda hate c++ but not really. I used to love c++. I tried to learn it and I did learn it to some extent but the build system, package manager gave me so much head ache that I had to stop. This was exactly why I initially started to learn rust. I didn't care about the memory safety or whatever. Cargo is what made me love rust.
+
+So programming language is also not the first step either. So what is it the development enviromnents and ide and stuff? Is it NixOs and Vim? Am I making taking about how after switching to nixos, I've been essentially cured of distro hopping and once I started using vim I have never seriously gone to any other editor?
+... well about that \[..._{ileftnixosandvimandnowusingdebianandemacs}\]
+
+Anyway. It is programming language. It is true that I like all those languages I listed above but what I like more is making stuff. So if choosing a single language is gonna allow me to focus more then I can hold off on using other languages for a while. so what lan- Rust. It was always gonna be rust.
+
+I guess I've said all that I have to say. Here are some of the resources I've gathered that I will be using.
+(I'll try to update the resources here as I come across more)
+
+* Books
+- [[https://rust-unofficial.github.io/too-many-lists/index.html][Learn Rust Entirely with Too Many LinkedList]]
+- [[https://doc.rust-lang.org/nightly/nomicon/intro.html][Rustonomicon]]
+- [[https://marabos.nl/atomics/][Rust Atomics and Locks]]
+- [[https://veykril.github.io/tlborm/introduction.html][The Little Book About Rust Macros]]
+
+
+* Youtube Channel
+- [[https://www.youtube.com/@jonhoo][Jon Gjengset]]
+
+
+* And thats it
+All that I've left to say is that I am very exicited for this. With the semester break just around the corner, I can't wait to do it. Literally. I couldn't wait for the exams to be over. I have started already: https://github.com/faultypointer/ThereCanNeverBeTooManyLinkedList

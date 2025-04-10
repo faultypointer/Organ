@@ -1,0 +1,8 @@
+#+title: Ideas
+#+author: faultypointer
+#+date: <2025-04-10 Thu>
+
+* About Me
+- [ ] my programming (language) journey
+  i have a pw "iHateJavascript" and "iLoveJavascript"
+- [ ] I love reading books
