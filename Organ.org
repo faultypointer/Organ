@@ -10,7 +10,7 @@
 
 * Agenda
 ** TODO Daily
-- [X] Read something from [[file:Scratch/RIL.org][RIL]] [ [[https://mbuffett.com/posts/maintaining-motivation/][T]][[https://www.masteringemacs.org/article/effective-editing-movement][oday]]  ]
+- [X] Read something from [[file:Scratch/RIL.org][RIL]] [ [[https://antirez.com/news/124][today]] ]
 - [X] Rust LinkedList Book
 
 

@@ -32,8 +32,9 @@
 *** General
 - [ ] [[https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER_STYLE.md][TigerStyle]]
 - [ ] [[https://cacm.acm.org/research/10-things-software-developers-should-learn-about-learning/][10 things every developer should learn]]
-- [ ] [[https://antirez.com/news/124][Writing systems software: code comments
-  ]]
+
+- [X] [[https://antirez.com/news/124][Writing systems software: code comments]]
+  design comment, why comments and teacher comment are really great. also kinda changed my mind on guide comment. i like them now
 - [X] [[https://mbuffett.com/posts/maintaining-motivation/][Managing My motivation, as a solo dev]]
   leave a little bit of code for the next day. just enough to get the engines running
 - [X] [[https://johnresig.com/blog/write-code-every-day/][Write code every day]]
