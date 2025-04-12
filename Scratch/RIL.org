@@ -60,6 +60,7 @@
 - [ ] [[https://doc.rust-lang.org/nightly/nomicon/intro.html][Rustonomicon]]
 - [ ] [[https://marabos.nl/atomics/][Rust Atomics and Locks]]
 - [ ] [[https://veykril.github.io/tlborm/introduction.html][The Little Book About Rust Macros]]
+- [ ] [[https://rust-unofficial.github.io/patterns/intro.html][Rust Design Patterns]]
 *** Oxidized Learning
 - [ ] Interpreter in Go
 - [ ] Compiler in Go
