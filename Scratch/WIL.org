@@ -8,3 +8,4 @@
 - [ ] [[https://www.youtube.com/watch?v=3OL95gZgPWA][Implementing Rust's Vec From Scratch]]
 - [ ] [[https://www.youtube.com/watch?v=NNwK5ZPAJCk][The Talk You've Been Await-ing for]]
 - [ ] [[https://www.youtube.com/watch?v=bnnacleqg6k][Type Driven API Design in Rust]]
+- [ ] [[https://archive.fosdem.org/2024/schedule/event/fosdem-2024-2434-the-four-horsemen-of-bad-rust-code/][The Four Horsemen of Bad Rust Code]]
