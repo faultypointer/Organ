@@ -18,8 +18,53 @@
 - [X] [[https://marimo.io/blog/lessons-learned][Lessons Learned Reinventing Python Notebook]]
   graphs rocks, design is very important, stay true to original pillar
 **** Rust
-- [ ] [[https://corrode.dev/blog/pitfalls-of-safe-rust/][Pitfalls of Safe Rust]]
 - [ ] [[https://shnatsel.medium.com/how-to-avoid-bounds-checks-in-rust-without-unsafe-f65e618b4c1e][How to avoid bounds checks in Rust]]
+
+- [X] [[https://corrode.dev/blog/pitfalls-of-safe-rust/][Pitfalls of Safe Rust]]
+  use checked arithmetic (checked_(add/mul/sub/div))
+  use from or tryfrom instead of as
+  create bounded types
+  dont index into array without bound checking (also split_at_checked)
+  dont use primitive types for business logic + make invalid states unrepresentable
+  dont derive debug, serialize, default carelessly
+  check for unsafe code in deps with cargo-geiger
+  clippy lints for above issues
+  #+begin_src rust
+// Arithmetic
+#![deny(arithmetic_overflow)] // Prevent operations that would cause integer overflow
+#![deny(clippy::checked_conversions)] // Suggest using checked conversions between numeric types
+#![deny(clippy::cast_possible_truncation)] // Detect when casting might truncate a value
+#![deny(clippy::cast_sign_loss)] // Detect when casting might lose sign information
+#![deny(clippy::cast_possible_wrap)] // Detect when casting might cause value to wrap around
+#![deny(clippy::cast_precision_loss)] // Detect when casting might lose precision
+#![deny(clippy::integer_division)] // Highlight potential bugs from integer division truncation
+#![deny(clippy::arithmetic_side_effects)] // Detect arithmetic operations with potential side effects
+#![deny(clippy::unchecked_duration_subtraction)] // Ensure duration subtraction won't cause underflow
+
+// Unwraps
+#![warn(clippy::unwrap_used)] // Discourage using .unwrap() which can cause panics
+#![warn(clippy::expect_used)] // Discourage using .expect() which can cause panics
+#![deny(clippy::panicking_unwrap)] // Prevent unwrap on values known to cause panics
+#![deny(clippy::option_env_unwrap)] // Prevent unwrapping environment variables which might be absent
+
+// Array indexing
+#![deny(clippy::indexing_slicing)] // Avoid direct array indexing and use safer methods like .get()
+
+// Path handling
+#![deny(clippy::join_absolute_paths)] // Prevent issues when joining paths with absolute paths
+
+// Serialization issues
+#![deny(clippy::serde_api_misuse)] // Prevent incorrect usage of Serde's serialization/deserialization API
+
+// Unbounded input
+#![deny(clippy::uninit_vec)] // Prevent creating uninitialized vectors which is unsafe
+
+// Unsafe code detection
+#![deny(clippy::transmute_int_to_char)] // Prevent unsafe transmutation from integers to characters
+#![deny(clippy::transmute_int_to_float)] // Prevent unsafe transmutation from integers to floats
+#![deny(clippy::transmute_ptr_to_ref)] // Prevent unsafe transmutation from pointers to references
+#![deny(clippy::transmute_undefined_repr)] // Detect transmutes with potentially undefined representations
+#+end_src
 *** Performance and optimization
 - [X] [[https://xuanwo.io/2023/04-rust-std-fs-slower-than-python/][Rust std fs is shower than Python?]]
   yes and no. it was amd ucode stuff (didn't understand much of the low level stuff)
