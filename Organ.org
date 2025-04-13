@@ -10,8 +10,8 @@
 
 * Agenda
 ** TODO Daily
-- [X] Read something from [[file:Scratch/RIL.org][RIL]] [ [[https://corrode.dev/blog/pitfalls-of-safe-rust/][today]]  ]
-- [X] Rust LinkedList Book
+- [ ] Read something from [[file:Scratch/RIL.org][RIL]] (Today: 10 things every developers should learn)
+- [ ] Rust LinkedList Book
 
 
 
