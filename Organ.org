@@ -10,8 +10,8 @@
 
 * Agenda
 ** TODO Daily
-- [ ] Read something from [[file:Scratch/RIL.org][RIL]] (Today: 10 things every developers should learn)
-- [ ] Rust LinkedList Book
+- [X] Read something from [[file:Scratch/RIL.org][RIL]] (Today: 10 things every developers should learn)
+- [X] Rust LinkedList Book
 
 
 
