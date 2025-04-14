@@ -6,21 +6,23 @@
 *** Languages
 
 **** Zig
-- [ ] [[https://matklad.github.io/2025/03/19/comptime-zig-orm.html][Zig Comptime ORM]]
+***** TODO  [[https://matklad.github.io/2025/03/19/comptime-zig-orm.html][Zig Comptime ORM]]
 
 **** Go
-- [ ] [[https://r2p.dev/b/2024-03-18-1brc-go/][1BRC in Go, from 95s to 1.96s]]
-- [ ] [[https://grafana.com/blog/2024/02/09/how-i-write-http-services-in-go-after-13-years/][How I Write HTTP services in Go]]
-- [ ] [[https://preslav.me/2022/08/09/i-dont-like-golang-default-http-handlers/][I don't like go's default http handlers]]
-- [ ] [[https://dave.cheney.net/practical-go/presentations/qcon-china.html][Practical Go: real world advice for writing mainainable go programs]]
+***** TODO [[https://r2p.dev/b/2024-03-18-1brc-go/][1BRC in Go, from 95s to 1.96s]]
+***** TODO [[https://grafana.com/blog/2024/02/09/how-i-write-http-services-in-go-after-13-years/][How I Write HTTP services in Go]]
+***** TODO [[https://preslav.me/2022/08/09/i-dont-like-golang-default-http-handlers/][I don't like go's default http handlers]]
+***** TODO [[https://dave.cheney.net/practical-go/presentations/qcon-china.html][Practical Go: real world advice for writing mainainable go programs]]
 
 **** Python
-- [X] [[https://marimo.io/blog/lessons-learned][Lessons Learned Reinventing Python Notebook]]
+***** DONE [[https://marimo.io/blog/lessons-learned][Lessons Learned Reinventing Python Notebook]]
   graphs rocks, design is very important, stay true to original pillar
 **** Rust
-- [ ] [[https://shnatsel.medium.com/how-to-avoid-bounds-checks-in-rust-without-unsafe-f65e618b4c1e][How to avoid bounds checks in Rust]]
-
-- [X] [[https://corrode.dev/blog/pitfalls-of-safe-rust/][Pitfalls of Safe Rust]]
+***** DONE [[https://shnatsel.medium.com/how-to-avoid-bounds-checks-in-rust-without-unsafe-f65e618b4c1e][How to avoid bounds checks in Rust]]
+help thee  compiler/optimizer(using slice, vec.len()), use iterators, asserts
+also there are other stuff on profiling and benchmarking
+really good article
+***** DONE [[https://corrode.dev/blog/pitfalls-of-safe-rust/][Pitfalls of Safe Rust]]
   use checked arithmetic (checked_(add/mul/sub/div))
   use from or tryfrom instead of as
   create bounded types
@@ -65,54 +67,58 @@
 #![deny(clippy::transmute_ptr_to_ref)] // Prevent unsafe transmutation from pointers to references
 #![deny(clippy::transmute_undefined_repr)] // Detect transmutes with potentially undefined representations
 #+end_src
+
+
 *** Performance and optimization
-- [X] [[https://xuanwo.io/2023/04-rust-std-fs-slower-than-python/][Rust std fs is shower than Python?]]
+***** DONE [[https://xuanwo.io/2023/04-rust-std-fs-slower-than-python/][Rust std fs is shower than Python?]]
   yes and no. it was amd ucode stuff (didn't understand much of the low level stuff)
   look into jemalloc, strace
-
+***** TODO [[https://talawah.io/blog/extreme-http-performance-tuning-one-point-two-million/][Extreme HTTP performance Tuning]]
 *** Asynchronous Programming
-- [X] [[https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/][What color is you function?]]
+***** DONE [[https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/][What color is you function?]]
   no async and sync stuff. instead threads. otherwise whole lots of problem. and go is the best lang.
 
 *** General
-- [ ] [[https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER_STYLE.md][TigerStyle]]
-- [ ] [[https://cacm.acm.org/research/10-things-software-developers-should-learn-about-learning/][10 things every developer should learn]]
-
-- [X] [[https://antirez.com/news/124][Writing systems software: code comments]]
+***** TODO [[https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER_STYLE.md][TigerStyle]]
+***** DONE [[https://cacm.acm.org/research/10-things-software-developers-should-learn-about-learning/][10 things every developer should learn]]
+***** DONE [[https://antirez.com/news/124][Writing systems software: code comments]]
   design comment, why comments and teacher comment are really great. also kinda changed my mind on guide comment. i like them now
-- [X] [[https://mbuffett.com/posts/maintaining-motivation/][Managing My motivation, as a solo dev]]
+***** DONE [[https://mbuffett.com/posts/maintaining-motivation/][Managing My motivation, as a solo dev]]
   leave a little bit of code for the next day. just enough to get the engines running
-- [X] [[https://johnresig.com/blog/write-code-every-day/][Write code every day]]
+***** DONE [[https://johnresig.com/blog/write-code-every-day/][Write code every day]]
 
 *** Tools
 **** Emacs
-- [X] [[https://www.masteringemacs.org/article/effective-editing-movement][Effective Editing I: Movement]]
+***** DONE [[https://www.masteringemacs.org/article/effective-editing-movement][Effective Editing I: Movement]]
   C-M-(f/b) for forward and backward balanced expr like quotes brackets
   M-m beginingn of line + forward past all indentations
   M-g M-g goto line
   C-M-(a/e) beginning and end of function defination
 
+** Writing
+*** Technical
+**** TODO [[https://lemire.me/blog/rules-to-write-a-good-research-paper/][Write Good Papers]]
 
 
 * Books
 ** Programming
 *** System Design
-- [ ] Data Oriented Design by Richard Fabian
+***** TODO Data Oriented Design by Richard Fabian
 *** OS
-- [ ] [[https://pages.cs.wisc.edu/~remzi/OSTEP/][Operating System: Three Easy Step]]
+***** TODO [[https://pages.cs.wisc.edu/~remzi/OSTEP/][Operating System: Three Easy Step]]
 *** Rust
-- [ ] [[https://rust-unofficial.github.io/too-many-lists/index.html][Learn Rust Entirely with Too Many LinkedList]]
-- [ ] [[https://doc.rust-lang.org/nightly/nomicon/intro.html][Rustonomicon]]
-- [ ] [[https://marabos.nl/atomics/][Rust Atomics and Locks]]
-- [ ] [[https://veykril.github.io/tlborm/introduction.html][The Little Book About Rust Macros]]
-- [ ] [[https://rust-unofficial.github.io/patterns/intro.html][Rust Design Patterns]]
+***** TODO [[https://rust-unofficial.github.io/too-many-lists/index.html][Learn Rust Entirely with Too Many LinkedList]]
+***** TODO [[https://doc.rust-lang.org/nightly/nomicon/intro.html][Rustonomicon]]
+***** TODO [[https://marabos.nl/atomics/][Rust Atomics and Locks]]
+***** TODO [[https://veykril.github.io/tlborm/introduction.html][The Little Book About Rust Macros]]
+***** TODO [[https://rust-unofficial.github.io/patterns/intro.html][Rust Design Patterns]]
 *** Oxidized Learning
-- [ ] Interpreter in Go
-- [ ] Compiler in Go
-- [ ] Crafting Interpreter
-- [ ] [[https://viewsourcecode.org/snaptoken/kilo/][Build Your Own Text Editor]]
-- [ ] [[https://www.leshenko.net/p/ugit/][Learn By Building Your Own Git]]
-- [ ] [[https://blog.jse.li/posts/torrent/][Building a BitTorrent client from the ground up in Go]]
+***** TODO Interpreter in Go
+***** TODO Compiler in Go
+***** TODO Crafting Interpreter
+***** TODO [[https://viewsourcecode.org/snaptoken/kilo/][Build Your Own Text Editor]]
+***** TODO [[https://www.leshenko.net/p/ugit/][Learn By Building Your Own Git]]
+***** TODO [[https://blog.jse.li/posts/torrent/][Building a BitTorrent client from the ground up in Go]]
 
 * Subscriptions
 ** blogs and other stuff of people
@@ -121,6 +127,7 @@
 - https://matklad.github.io/
 - [[https://www.piglei.com/articles/en-programmer-reading-list-part-one/][Programmer's Reading List]]
 - https://togglebit.io/
+- https://lemire.me/blog/
 
 ** Youtube
 - [[https://www.youtube.com/@jonhoo][Jon Gjengset]]
