@@ -10,7 +10,7 @@
 
 * Agenda
 ** TODO Daily
-- [X] Read something from [[file:Scratch/RIL.org][RIL]] (Today: How to avoid bound checks in rust)
+- [X] Read something from [[file:Scratch/RIL.org][RIL]] (Today: Think like a compiler: places and values in rust)
 - [X] Rust LinkedList Book
 
 

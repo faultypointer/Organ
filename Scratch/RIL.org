@@ -18,6 +18,8 @@
 ***** DONE [[https://marimo.io/blog/lessons-learned][Lessons Learned Reinventing Python Notebook]]
   graphs rocks, design is very important, stay true to original pillar
 **** Rust
+***** TODO [[https://burntsushi.net/unwrap/][Using unwrap() in Rust is Okay]]
+***** DONE [[https://steveklabnik.com/writing/thinking-like-a-compiler-places-and-values-in-rust/][Think Like a Compiler: Places and Values in Rust]]
 ***** DONE [[https://shnatsel.medium.com/how-to-avoid-bounds-checks-in-rust-without-unsafe-f65e618b4c1e][How to avoid bounds checks in Rust]]
 help thee  compiler/optimizer(using slice, vec.len()), use iterators, asserts
 also there are other stuff on profiling and benchmarking
@@ -70,10 +72,10 @@ really good article
 
 
 *** Performance and optimization
+***** TODO [[https://talawah.io/blog/extreme-http-performance-tuning-one-point-two-million/][Extreme HTTP performance Tuning]]
 ***** DONE [[https://xuanwo.io/2023/04-rust-std-fs-slower-than-python/][Rust std fs is shower than Python?]]
   yes and no. it was amd ucode stuff (didn't understand much of the low level stuff)
   look into jemalloc, strace
-***** TODO [[https://talawah.io/blog/extreme-http-performance-tuning-one-point-two-million/][Extreme HTTP performance Tuning]]
 *** Asynchronous Programming
 ***** DONE [[https://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/][What color is you function?]]
   no async and sync stuff. instead threads. otherwise whole lots of problem. and go is the best lang.
@@ -120,6 +122,10 @@ really good article
 ***** TODO [[https://www.leshenko.net/p/ugit/][Learn By Building Your Own Git]]
 ***** TODO [[https://blog.jse.li/posts/torrent/][Building a BitTorrent client from the ground up in Go]]
 
+* Papers
+** Rust
+*** TODO [[https://arxiv.org/abs/2504.01841][Garbage Collection for Rust]]
+
 * Subscriptions
 ** blogs and other stuff of people
 - https://tavianator.com/index.html
@@ -128,6 +134,10 @@ really good article
 - [[https://www.piglei.com/articles/en-programmer-reading-list-part-one/][Programmer's Reading List]]
 - https://togglebit.io/
 - https://lemire.me/blog/
+- https://burntsushi.net/
 
 ** Youtube
 - [[https://www.youtube.com/@jonhoo][Jon Gjengset]]
+
+* Other useful links
+- http://nifty.stanford.edu/ [projects, assignments, ideas]
