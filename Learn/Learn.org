@@ -27,5 +27,6 @@ so empty...
 <2025-04-10 Thu> no more lisp for now [[file:~/git/Organ/Blog/Journal/all-in-rust.org][going all in on rust]] now.
 <2025-04-11 Fri> too many linkedlist book second list finished.
 <2025-04-14 Mon> havent logged here for a while. ive continuing with the linked list book. reached fifth list
+<2025-04-17 Thu> finally finished the linked list book (well) and also the exam finish so i should be able to do more of rust learning
 * Should Learn about these stuff
 - [ ] strace and how to use it

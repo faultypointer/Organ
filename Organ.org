@@ -10,13 +10,14 @@
 
 * Agenda
 ** TODO Daily
-- [X] Read something from [[file:Scratch/RIL.org][RIL]] (Today: Think like a compiler: places and values in rust)
-- [X] Rust LinkedList Book
+- [ ] Read something from [[file:Scratch/RIL.org][RIL]] (Today: 1BRC in go)
+- [ ] Rust Nomicon book
+- [ ] Daily Rust Programming
 
 
 
 ** TODO Today
-
+- [ ] 1BRC in Rust
 
 ** TODO Weekly
 

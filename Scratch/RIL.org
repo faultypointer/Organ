@@ -19,6 +19,9 @@
   graphs rocks, design is very important, stay true to original pillar
 **** Rust
 ***** TODO [[https://burntsushi.net/unwrap/][Using unwrap() in Rust is Okay]]
+***** TODO [[https://www.feldera.com/blog/cutting-down-rust-compile-times-from-30-to-2-minutes-with-one-thousand-crates][cutting down rust compiler time from 30 to 2 minutes]]
+***** DONE [[https://lifetime-variance.sunshowers.io/index.html][Lifetime Variance in Rust]]
+nice little practical stuff on lifetime variance. kinda understand them a little bit
 ***** DONE [[https://steveklabnik.com/writing/thinking-like-a-compiler-places-and-values-in-rust/][Think Like a Compiler: Places and Values in Rust]]
 ***** DONE [[https://shnatsel.medium.com/how-to-avoid-bounds-checks-in-rust-without-unsafe-f65e618b4c1e][How to avoid bounds checks in Rust]]
 help thee  compiler/optimizer(using slice, vec.len()), use iterators, asserts
@@ -109,11 +112,14 @@ really good article
 *** OS
 ***** TODO [[https://pages.cs.wisc.edu/~remzi/OSTEP/][Operating System: Three Easy Step]]
 *** Rust
-***** TODO [[https://rust-unofficial.github.io/too-many-lists/index.html][Learn Rust Entirely with Too Many LinkedList]]
 ***** TODO [[https://doc.rust-lang.org/nightly/nomicon/intro.html][Rustonomicon]]
 ***** TODO [[https://marabos.nl/atomics/][Rust Atomics and Locks]]
 ***** TODO [[https://veykril.github.io/tlborm/introduction.html][The Little Book About Rust Macros]]
 ***** TODO [[https://rust-unofficial.github.io/patterns/intro.html][Rust Design Patterns]]
+***** DONE [[https://rust-unofficial.github.io/too-many-lists/index.html][Learn Rust Entirely with Too Many LinkedList]]
+learned a lot about memory, lifetime, unsafe, invariance, and many more
+the title isn't lying
+very good book for learning rust
 *** Oxidized Learning
 ***** TODO Interpreter in Go
 ***** TODO Compiler in Go
@@ -128,16 +134,16 @@ really good article
 
 * Subscriptions
 ** blogs and other stuff of people
-- https://tavianator.com/index.html
-- https://andrewkelley.me/
-- https://matklad.github.io/
-- [[https://www.piglei.com/articles/en-programmer-reading-list-part-one/][Programmer's Reading List]]
-- https://togglebit.io/
-- https://lemire.me/blog/
-- https://burntsushi.net/
+- https://tavianator.com/index.html [rust]
+- https://andrewkelley.me/ [zig]
+- https://matklad.github.io/ [zig, rust]
+- [[https://www.piglei.com/articles/en-programmer-reading-list-part-one/][Programmer's Reading List]] [more articles]
+- https://togglebit.io/ [rust]
+- https://lemire.me/blog/ [performance]
+- https://burntsushi.net/ [rust]
 
 ** Youtube
-- [[https://www.youtube.com/@jonhoo][Jon Gjengset]]
+- [[https://www.youtube.com/@jonhoo][Jon Gjengset]] [rust]
 
 * Other useful links
 - http://nifty.stanford.edu/ [projects, assignments, ideas]
