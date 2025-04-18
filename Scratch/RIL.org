@@ -9,7 +9,7 @@
 ***** TODO  [[https://matklad.github.io/2025/03/19/comptime-zig-orm.html][Zig Comptime ORM]]
 
 **** Go
-***** TODO [[https://r2p.dev/b/2024-03-18-1brc-go/][1BRC in Go, from 95s to 1.96s]]
+***** DONE [[https://r2p.dev/b/2024-03-18-1brc-go/][1BRC in Go, from 95s to 1.96s]]
 ***** TODO [[https://grafana.com/blog/2024/02/09/how-i-write-http-services-in-go-after-13-years/][How I Write HTTP services in Go]]
 ***** TODO [[https://preslav.me/2022/08/09/i-dont-like-golang-default-http-handlers/][I don't like go's default http handlers]]
 ***** TODO [[https://dave.cheney.net/practical-go/presentations/qcon-china.html][Practical Go: real world advice for writing mainainable go programs]]
@@ -116,6 +116,7 @@ really good article
 ***** TODO [[https://marabos.nl/atomics/][Rust Atomics and Locks]]
 ***** TODO [[https://veykril.github.io/tlborm/introduction.html][The Little Book About Rust Macros]]
 ***** TODO [[https://rust-unofficial.github.io/patterns/intro.html][Rust Design Patterns]]
+***** TODO Rust for Rustaceans
 ***** DONE [[https://rust-unofficial.github.io/too-many-lists/index.html][Learn Rust Entirely with Too Many LinkedList]]
 learned a lot about memory, lifetime, unsafe, invariance, and many more
 the title isn't lying
