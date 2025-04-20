@@ -10,10 +10,7 @@
 
 * Agenda
 ** TODO Daily
-- [X] Read something from [[file:Scratch/RIL.org][RIL]] (Today: Using unwrap in Rust is okay)
-- [X] Rust Nomicon book
-- [X] Daily Rust Programming: Build your own text editor
-- [X] Rust for Rustaceans
+- [X] Rust
 
 
 
@@ -23,6 +20,5 @@
 
 
 ** TODO Weekly
-- [ ] Write something (anything) about rust (mainly learned stuff but no constraints)
 
 ** TODO This Week

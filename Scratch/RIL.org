@@ -18,7 +18,7 @@
 ***** DONE [[https://marimo.io/blog/lessons-learned][Lessons Learned Reinventing Python Notebook]]
   graphs rocks, design is very important, stay true to original pillar
 **** Rust
-***** TODO [[https://burntsushi.net/unwrap/][Using unwrap() in Rust is Okay]]
+***** DONE [[https://burntsushi.net/unwrap/][Using unwrap() in Rust is Okay]]
 ***** TODO [[https://www.feldera.com/blog/cutting-down-rust-compile-times-from-30-to-2-minutes-with-one-thousand-crates][cutting down rust compiler time from 30 to 2 minutes]]
 ***** DONE [[https://lifetime-variance.sunshowers.io/index.html][Lifetime Variance in Rust]]
 nice little practical stuff on lifetime variance. kinda understand them a little bit
@@ -102,7 +102,7 @@ really good article
 
 ** Writing
 *** Technical
-**** TODO [[https://lemire.me/blog/rules-to-write-a-good-research-paper/][Write Good Papers]]
+**** DONE [[https://lemire.me/blog/rules-to-write-a-good-research-paper/][Write Good Papers]]
 
 
 * Books
@@ -116,7 +116,7 @@ really good article
 ***** TODO [[https://marabos.nl/atomics/][Rust Atomics and Locks]]
 ***** TODO [[https://veykril.github.io/tlborm/introduction.html][The Little Book About Rust Macros]]
 ***** TODO [[https://rust-unofficial.github.io/patterns/intro.html][Rust Design Patterns]]
-***** TODO Rust for Rustaceans
+***** STRT Rust for Rustaceans
 ***** DONE [[https://rust-unofficial.github.io/too-many-lists/index.html][Learn Rust Entirely with Too Many LinkedList]]
 learned a lot about memory, lifetime, unsafe, invariance, and many more
 the title isn't lying
