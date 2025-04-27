@@ -10,9 +10,8 @@
 
 * Agenda
 ** TODO Daily
-- [X] Rust
-
-
+- [X] Rust Design Patterns
+- [X] Rust Atomics
 
 
 ** TODO Today
